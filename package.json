@@ -7,8 +7,7 @@
     "build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest",
-    "postinstall": "yarn run bundle:ios"
+    "test": "jest"
   },
   "resolutions": {
     "@react-native-community/async-storage": "1.12.1"
