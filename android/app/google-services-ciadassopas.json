@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "30721571804",
+    "project_id": "ciadassopas-101c3",
+    "storage_bucket": "ciadassopas-101c3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30721571804:android:b81e8fcb7e17a973016d19",
+        "android_client_info": {
+          "package_name": "br.com.delivery.ciadassopas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGBjvZjepsRQDI8mgoFdBrW3iBzkYZ87Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

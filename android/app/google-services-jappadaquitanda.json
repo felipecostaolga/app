@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "504285009422",
+    "project_id": "jappa-da-quitanda-71512",
+    "storage_bucket": "jappa-da-quitanda-71512.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504285009422:android:ca191467864b2123bc4e5f",
+        "android_client_info": {
+          "package_name": "br.com.delivery.jappadaquitanda"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCO-dnXNQK0UzMiXSlrpT0T3zEF78fhRkI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

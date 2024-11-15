@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "134993359727",
+    "project_id": "greenjoy-79f9d",
+    "storage_bucket": "greenjoy-79f9d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134993359727:android:9feb5e89a10fd201532e9a",
+        "android_client_info": {
+          "package_name": "br.com.delivery.greenjoy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134993359727-9kvgfku231rsnoqimea01k4ek4f88fv6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr9xlrhjSH0tQ3uTr8ixGyPIsq6AZpx74"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134993359727-9kvgfku231rsnoqimea01k4ek4f88fv6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

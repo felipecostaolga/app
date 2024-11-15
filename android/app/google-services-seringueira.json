@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "753603725690",
+    "project_id": "seringueira-11848",
+    "storage_bucket": "seringueira-11848.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753603725690:android:03a14b03ec4ee83a09aec3",
+        "android_client_info": {
+          "package_name": "br.com.delivery.express"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-_ZzpOhAuxVfyKXpQyEbY4x89JsBfoO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753603725690:android:ad336f255c45b3f209aec3",
+        "android_client_info": {
+          "package_name": "br.com.delivery.seringueira"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-_ZzpOhAuxVfyKXpQyEbY4x89JsBfoO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753603725690:android:fdd8e34f6533196409aec3",
+        "android_client_info": {
+          "package_name": "br.com.seringueira.churrascaria"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-_ZzpOhAuxVfyKXpQyEbY4x89JsBfoO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,25 @@
+{
+  "project_info": {
+    "project_number": "764020044174",
+    "project_id": "sushiloko-7d701",
+    "storage_bucket": "sushiloko-7d701.appspot.com"
+  },
+  "client": [{
+    "client_info": {
+      "mobilesdk_app_id": "1:764020044174:android:c54438e82f26d6705db4df",
+      "android_client_info": {
+        "package_name": "br.com.delivery.sushiloko.olga"
+      }
+    },
+    "oauth_client": [],
+    "api_key": [{
+      "current_key": "AIzaSyAMRBQZ0Ud3kuSTk2WioXbT0yNvtSztldY"
+    }],
+    "services": {
+      "appinvite_service": {
+        "other_platform_oauth_client": []
+      }
+    }
+  }],
+  "configuration_version": "1"
+}

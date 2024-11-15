@@ -1,0 +1,45 @@
+platform :android do
+  desc "Build AAB for release and upload images and texts to Google Play"
+  lane :build do
+    gradle(
+      task: "clean bundleRelease",
+      project_dir: "../android" # Caminho relativo para a pasta android
+    )
+
+    # Upload do AAB e dos metadados para o Google Play
+    upload_to_play_store(
+      track: "production", # Faz upload para o Google Play na track de produção
+      json_key: "./fastlane/robsonjr-973fd4f86cda.json", # Caminho para o arquivo JSON da conta de serviço
+      skip_upload_apk: true,   # Pula o upload do APK (estamos enviando um AAB)
+      skip_upload_aab: false,  # Permite o upload do AAB
+      aab: "../android/app/build/outputs/bundle/release/app-release.aab" # Caminho para o AAB gerado
+    )
+  end
+end
+platform :ios do
+  desc "Construir o aplicativo"
+  lane :build do
+    build_app(scheme: "DVRO")
+  end
+
+  desc "Lançar para a App Store"
+lane :release do
+  build_app(
+    scheme: "DVRO",
+    workspace: "/Users/felipecosta/Downloads/app-generator/src/app/ios/DVRO.xcworkspace" 
+  )
+  upload_to_app_store
+end
+end
+
+desc "Clean build artifacts"
+lane :clean_build_artifacts do
+  # Limpa arquivos temporários do Xcode
+  sh "rm -rf ~/Library/Developer/Xcode/DerivedData/*"
+  
+  # Limpa caches de builds antigos, caso esteja usando Cocoapods
+  sh "pod cache clean --all"
+  
+  # Limpa os diretórios temporários do fastlane
+  sh "rm -rf ./fastlane/build/*"
+end

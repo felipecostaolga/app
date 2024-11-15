@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "608272695421",
+    "project_id": "cabana-c8d72",
+    "storage_bucket": "cabana-c8d72.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608272695421:android:d0a805dfeff56b21553114",
+        "android_client_info": {
+          "package_name": "cabana.alphacode.com.br"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608272695421-5e6r0k1l6vop78ple3h8u6l4dsjsmb7q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8OIPtsHND4H5zoBjp3PB_20ek-BmZcXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608272695421-5e6r0k1l6vop78ple3h8u6l4dsjsmb7q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "783211907460",
+    "project_id": "guaco-be536",
+    "storage_bucket": "guaco-be536.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783211907460:android:358e470e329822e2db35d1",
+        "android_client_info": {
+          "package_name": "com.guacoapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKG_A7mx8wp3X6WfZ96IG4vd8dEPwNn6o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,3 @@
+-keep class com.onesignal.** { *; }
+
+-dontwarn com.onesignal.*

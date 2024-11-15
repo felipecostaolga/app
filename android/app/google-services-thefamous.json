@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "389947002802",
+    "project_id": "thefamous-9a0a1",
+    "storage_bucket": "thefamous-9a0a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389947002802:android:55ef68b29588929ef71eab",
+        "android_client_info": {
+          "package_name": "br.com.delivery.thefamous"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlwd8z1daV6avx-0xB8UYbKZQPFCgN3Fw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

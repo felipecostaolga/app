@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "886631263127",
+    "project_id": "isabelaakkari-97bbc",
+    "storage_bucket": "isabelaakkari-97bbc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886631263127:android:934ca6d40cc13d764f32d2",
+        "android_client_info": {
+          "package_name": "br.com.delivery.isabelaakkari"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "886631263127-pv2j0cgfoa06lrudah299i5kdslrdsli.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1jBSjafgEW3OXFsrL53JYF9h86PIY9S0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "886631263127-pv2j0cgfoa06lrudah299i5kdslrdsli.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886631263127:android:90b0be8a85edb4464f32d2",
+        "android_client_info": {
+          "package_name": "br.com.delivery.isabellaakkari"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "886631263127-pv2j0cgfoa06lrudah299i5kdslrdsli.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1jBSjafgEW3OXFsrL53JYF9h86PIY9S0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "886631263127-pv2j0cgfoa06lrudah299i5kdslrdsli.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "114085932137",
+    "project_id": "azilados-b4431",
+    "storage_bucket": "azilados-b4431.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114085932137:android:f12deb6cb7b16782bb86f8",
+        "android_client_info": {
+          "package_name": "br.com.delivery.azilados"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY9-gE6T00u_Aqv_vWKKCLXfzufXu3gZ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

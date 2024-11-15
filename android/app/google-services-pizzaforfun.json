@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "63180395643",
+    "project_id": "pizzaforfun-e7dce",
+    "storage_bucket": "pizzaforfun-e7dce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63180395643:android:b96eb48edddb3d61447ede",
+        "android_client_info": {
+          "package_name": "br.com.delivery.pizzaforfun"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "63180395643-gfe6e5iaq8gv5t9lph0degccff1g51v5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmFHFHeMbPJMDS4FnI1Nh97x1h4Z4yhww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "63180395643-gfe6e5iaq8gv5t9lph0degccff1g51v5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

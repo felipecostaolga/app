@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "134340866889",
+    "project_id": "andiamo-115b6",
+    "storage_bucket": "andiamo-115b6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134340866889:android:88d56329631e6258bfa098",
+        "android_client_info": {
+          "package_name": "br.com.delivery.andiamo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP1U3g1EAI3ga4iS7VVQhOTdXsAEsBcJY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

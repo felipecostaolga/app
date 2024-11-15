@@ -1,0 +1,41 @@
+default_platform(:android)
+
+platform :android do
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: "test")
+  end
+
+  desc "Submit a new Beta Build to Crashlytics Beta"
+  lane :beta do
+    gradle(task: " bundleRelease")  
+    crashlytics
+  end
+
+  desc "Deploy a new version to the Google Play"
+  lane :deploy do
+    gradle(task: " bundleRelease")  
+    upload_to_play_store(
+      track: "production"              
+    )
+  end
+end
+default_platform(:ios)
+
+platform :ios do
+  desc "Construir o aplicativo"
+  lane :build do
+    build_app(scheme: "DVRO")
+  end
+
+  desc "Executar testes"
+  lane :test do
+    run_tests(scheme: "DVRO")
+  end
+
+  desc "Lançar para a App Store"
+  lane :release do
+    build_app(scheme: "DVRO")
+    upload_to_app_store
+  end
+end

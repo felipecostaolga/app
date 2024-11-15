@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "309019825019",
+    "project_id": "sucao-9db6f",
+    "storage_bucket": "sucao-9db6f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309019825019:android:bc275b698587f38fc163de",
+        "android_client_info": {
+          "package_name": "br.com.delivery.sucao"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "309019825019-2le34qmvfc9nvopc34v0lpfdoo4slp23.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_WsKbAxQ0ABZhYM9omnRvFVKmI8rByX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "309019825019-2le34qmvfc9nvopc34v0lpfdoo4slp23.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

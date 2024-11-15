@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "682174221961",
+    "project_id": "liglig-bb986",
+    "storage_bucket": "liglig-bb986.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682174221961:android:fda66d417135f5eca9c058",
+        "android_client_info": {
+          "package_name": "br.com.delivery.liglig"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "682174221961-gl1coaqba8sv0mj3j0feabl4utrgsmmm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD_H9NMUGCh5Vg0CbTsOhh0Fvu0c9G14M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "682174221961-gl1coaqba8sv0mj3j0feabl4utrgsmmm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682174221961:android:f43abc670fc89d18a9c058",
+        "android_client_info": {
+          "package_name": "br.com.liglig.delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "682174221961-gl1coaqba8sv0mj3j0feabl4utrgsmmm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD_H9NMUGCh5Vg0CbTsOhh0Fvu0c9G14M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "682174221961-gl1coaqba8sv0mj3j0feabl4utrgsmmm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

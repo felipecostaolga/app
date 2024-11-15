@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "344221600684",
+    "project_id": "devoro-e4208",
+    "storage_bucket": "devoro-e4208.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:344221600684:android:e50963ad8f3567efe20809",
+        "android_client_info": {
+          "package_name": "com.devoroapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "344221600684-6ppb00unf1rth1agd3pjie4brbelebpl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkDyptHeqjqKNkNK28eXSgivs-X1qTZD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "344221600684-6ppb00unf1rth1agd3pjie4brbelebpl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

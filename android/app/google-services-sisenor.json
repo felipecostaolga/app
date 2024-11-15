@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1004492347580",
+    "project_id": "sisenhor-2fe37",
+    "storage_bucket": "sisenhor-2fe37.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004492347580:android:fcdf746d10808bcba4d8b9",
+        "android_client_info": {
+          "package_name": "br.com.delivery.sisenhor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj2Ik-tnXscYn8EAiW0gLs9cOmAaYeQ5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004492347580:android:6a33707f7f376969a4d8b9",
+        "android_client_info": {
+          "package_name": "br.com.delivery.sisenor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj2Ik-tnXscYn8EAiW0gLs9cOmAaYeQ5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

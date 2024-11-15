@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "207689378979",
+    "project_id": "dipz-f61a7",
+    "storage_bucket": "dipz-f61a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207689378979:android:96a7940a95d32b7ee12316",
+        "android_client_info": {
+          "package_name": "br.com.delivery.dipz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI-WdxuvMLMqIpFtviRypoQ22zwtEnbPw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

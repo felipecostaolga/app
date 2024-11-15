@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "1021802480931",
+    "project_id": "olgaletspokeapppush",
+    "storage_bucket": "olgaletspokeapppush.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021802480931:android:8cecc7a045f4df6fc33896",
+        "android_client_info": {
+          "package_name": "br.com.delivery.letspoke"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021802480931-a27rln4e863vt47ssj7m2r74b57q5e6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwtz6yJTn2PH8DbLf_vDXHJ4ojiYWrnk4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021802480931-a27rln4e863vt47ssj7m2r74b57q5e6i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021802480931:android:8690c620d2982a1fc33896",
+        "android_client_info": {
+          "package_name": "br.com.letspoke.delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021802480931-a27rln4e863vt47ssj7m2r74b57q5e6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwtz6yJTn2PH8DbLf_vDXHJ4ojiYWrnk4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021802480931-a27rln4e863vt47ssj7m2r74b57q5e6i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021802480931:android:c92f83b48e1dfa5ac33896",
+        "android_client_info": {
+          "package_name": "br.com.voceqpad.letspoke"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021802480931-a27rln4e863vt47ssj7m2r74b57q5e6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwtz6yJTn2PH8DbLf_vDXHJ4ojiYWrnk4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021802480931-a27rln4e863vt47ssj7m2r74b57q5e6i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
