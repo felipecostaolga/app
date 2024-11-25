@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+ <key>method</key>
+    <string>ad-hoc</string>
+    <key>teamID</key>
+    <string>1521695710</string>
+    <key>provisioningProfiles</key>
+    <dict>
+        <key>br.com.delivery.azilados</key>
+        <string>Sua Provisioning Profile</string>
+    </dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Nós usamos a sua câmera para permitir que você scanei qrCode de benefícios.</string>
 	<key>CFBundleDevelopmentRegion</key>

@@ -43,3 +43,4 @@ lane :clean_build_artifacts do
   # Limpa os diretórios temporários do fastlane
   sh "rm -rf ./fastlane/build/*"
 end
+
