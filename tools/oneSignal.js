@@ -28,11 +28,25 @@ class OneSignalTools extends Component {
   async componentDidMount() {
     this._isMounted = true;
     await this.init();
+    OneSignal.Notifications.addEventListener(
+      'received',
+      this.onNotificationReceived,
+    );
   }
 
   componentWillUnmount() {
     this._isMounted = false;
   }
+
+  onNotificationReceived = notification => {
+    console.log('Notificação recebida:', notification);
+
+    // Verifique se o app estava fechado ou em segundo plano.
+    if (notification.foreground === false) {
+      // Faça algo específico, por exemplo, armazenar no AsyncStorage
+      // ou disparar um evento.
+    }
+  };
 
   isTwoDaysPassed = dateString => {
     if (!dateString) {

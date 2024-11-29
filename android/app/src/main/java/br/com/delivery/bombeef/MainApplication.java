@@ -1,4 +1,4 @@
-package br.com.delivery.thefamous;
+package br.com.delivery.bombeef;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
