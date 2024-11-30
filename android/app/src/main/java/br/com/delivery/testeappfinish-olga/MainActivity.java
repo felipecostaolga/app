@@ -1,4 +1,4 @@
-package br.com.delivery.bombeef;
+package br.com.delivery.testeappfinish;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

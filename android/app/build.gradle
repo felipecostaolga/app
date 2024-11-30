@@ -78,14 +78,14 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.bombeef"
+    namespace "br.com.delivery.testeappfinish"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.bombeef"
+        applicationId "br.com.delivery.testeappfinish"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 102
-        versionName "102.1"
+        versionCode 100
+        versionName "100.1"
     }
       buildFeatures {
         buildConfig = true
@@ -93,15 +93,15 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file('bombeef-olga.keystore')
+            storeFile file('testeappfinish-olga.keystore')
             storePassword '12345678' 
-            keyAlias 'bombeef-olga'
+            keyAlias 'testeappfinish-olga'
             keyPassword '12345678'
         }
          release {
-            storeFile file('bombeef-olga.keystore')
+            storeFile file('testeappfinish-olga.keystore')
             storePassword '12345678'
-            keyAlias 'bombeef-olga'
+            keyAlias 'testeappfinish-olga'
 
 
 

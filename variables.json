@@ -1,7 +1,7 @@
 {
-  "url": "https://bombeef.olga.tech/",
-  "primaryColor": "#ed702e",
-  "secondaryColor": "#ed702e",
-  "OneSignalKey": "xxxxxx",
+  "url": "https://www.google.com",
+  "primaryColor": "#000000",
+  "secondaryColor": "#000000",
+  "OneSignalKey": "cb195d5a-75e2-4f89-8956-9a64654ef568",
   "olgaApi": "https://api.olga.tech/"
 }

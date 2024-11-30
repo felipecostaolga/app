@@ -1,4 +1,4 @@
-package br.com.delivery.bombeef;
+package br.com.delivery.testeappfinish;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
