@@ -1,7 +1,7 @@
 {
-  "url": "https://www.google.com",
-  "primaryColor": "#000000",
-  "secondaryColor": "#000000",
-  "OneSignalKey": "325cda0c-bbcf-45b3-b945-70336bb8ec05",
+  "url": "https://sucao.olga.tech",
+  "primaryColor": "#ffffff",
+  "secondaryColor": "#ffffff",
+  "OneSignalKey": "xxxxxx",
   "olgaApi": "https://api.olga.tech/"
 }
