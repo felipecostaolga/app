@@ -1,7 +1,7 @@
 {
-  "url": "https://sucao.olga.tech",
-  "primaryColor": "#ffffff",
-  "secondaryColor": "#ffffff",
-  "OneSignalKey": "xxxxxx",
+  "url": "https://chefinhos.olga.tech/",
+  "primaryColor": "#fbba00",
+  "secondaryColor": "#fbba00",
+  "OneSignalKey": "66607c46-9598-4bf8-a775-04f74597ad14",
   "olgaApi": "https://api.olga.tech/"
 }

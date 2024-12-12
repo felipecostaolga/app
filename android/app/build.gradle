@@ -78,14 +78,14 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.sucao"
+    namespace "undefined"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.sucao"
+        applicationId "undefined"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 100
-        versionName "100.1"
+        versionCode 102
+        versionName "102.1"
     }
       buildFeatures {
         buildConfig = true
@@ -93,15 +93,15 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file('undefined-olga-olga.keystore')
+            storeFile file('chefinhos-olga.keystore')
             storePassword '12345678' 
-            keyAlias 'undefined-olga-olga'
+            keyAlias 'chefinhos-olga'
             keyPassword '12345678'
         }
          release {
-            storeFile file('undefined-olga-olga.keystore')
+            storeFile file('chefinhos-olga.keystore')
             storePassword '12345678'
-            keyAlias 'undefined-olga-olga'
+            keyAlias 'chefinhos-olga'
 
 
 

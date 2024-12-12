@@ -1,4 +1,4 @@
-package br.com.delivery.sucao;
+package undefined;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

@@ -81,8 +81,7 @@ export class LoadingView extends React.Component {
       infoDevice,
       infoOnesignal,
     });
-    console.log('chamou ##########');
-    console.log('results', permissionResponse, infoDevice, infoOnesignal);
+
     return deniedPermissions;
   }
 
@@ -90,7 +89,6 @@ export class LoadingView extends React.Component {
     this.setState({isLongPress: false});
     this.longPressTimeout = setTimeout(() => {
       this.setState({isLongPress: true});
-      console.log('enviando log para o endpoint');
       this.requestPermissions();
     }, 3000);
   };

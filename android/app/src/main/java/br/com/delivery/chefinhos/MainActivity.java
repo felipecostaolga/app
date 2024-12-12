@@ -1,4 +1,4 @@
-package br.com.delivery.sucao;
+package undefined;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
