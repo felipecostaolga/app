@@ -1,7 +1,7 @@
 {
   "url": "https://takeajuice.sites.olga.tech/",
-  "primaryColor": "#ffffff",
-  "secondaryColor": "#ffffff",
+  "primaryColor": "#f47025",
+  "secondaryColor": "#f47025",
   "OneSignalKey": "",
   "olgaApi": "https://api.olga.tech/",
   "olgaApiFood": "https://api.food.olga.tech"
