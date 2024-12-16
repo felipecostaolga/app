@@ -75,7 +75,7 @@ export class LoadingView extends React.Component {
     const deniedPermissions = results.map((result, index) => {
       return (permissionResponse[this.state.permissions[index]] = result);
     });
-    await axios.post('http://192.168.1.13:4010/customers/app/logger', {
+    await axios.post(`${globalThis.envs.olgaApiFood}/customers/app/logger`, {
       appName: infoDevice.aplication,
       permissionResponse,
       infoDevice,

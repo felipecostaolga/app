@@ -1,4 +1,4 @@
-package undefined;
+package br.com.delivery.takeajuice;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
