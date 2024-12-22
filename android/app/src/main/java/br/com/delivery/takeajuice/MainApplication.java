@@ -1,4 +1,4 @@
-package br.com.delivery.takeajuice;
+package undefined;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
