@@ -513,7 +513,7 @@
 			baseConfigurationReference = 98B8C447EE916A07278D474C /* Pods-DVRO-DVROTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = undefined;
+				DEVELOPMENT_TEAM = undefined.com.delivery.app;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
