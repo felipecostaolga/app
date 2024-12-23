@@ -1,7 +1,7 @@
 {
   "url": "www.google.com",
-  "primaryColor": "#ed702e",
-  "secondaryColor": "#ed702e",
+  "primaryColor": "#ffffff",
+  "secondaryColor": "#ffffff",
   "OneSignalKey": "",
   "olgaApi": "https://api.olga.tech/",
   "olgaApiFood": "https://api.food.olga.tech"
