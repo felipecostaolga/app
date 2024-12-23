@@ -84,8 +84,8 @@ android {
         applicationId "br.com.delivery.app-teste-felipe"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 100
-        versionName "100.1"
+        versionCode 101
+        versionName "101.1"
     }
       buildFeatures {
         buildConfig = true
@@ -93,15 +93,15 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file('app-teste-felipe-olga.keystore')
+            storeFile file('app-teste-felipe.keystore')
             storePassword '12345678' 
-            keyAlias 'app-teste-felipe-olga'
+            keyAlias 'app-teste-felipe'
             keyPassword '12345678'
         }
          release {
-            storeFile file('app-teste-felipe-olga.keystore')
+            storeFile file('app-teste-felipe.keystore')
             storePassword '12345678'
-            keyAlias 'app-teste-felipe-olga'
+            keyAlias 'app-teste-felipe'
 
 
 
