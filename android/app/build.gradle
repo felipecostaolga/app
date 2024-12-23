@@ -84,8 +84,8 @@ android {
         applicationId "br.com.delivery.app-teste-felipe"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 101
-        versionName "101.1"
+        versionCode 104
+        versionName "104.1"
     }
       buildFeatures {
         buildConfig = true
