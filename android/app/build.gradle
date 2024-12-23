@@ -78,14 +78,14 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "undefined"
+    namespace "br.com.delivery.app-teste-felipe"
     defaultConfig {
         multiDexEnabled true
-        applicationId "undefined"
+        applicationId "br.com.delivery.app-teste-felipe"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 103
-        versionName "103.1"
+        versionCode 100
+        versionName "100.1"
     }
       buildFeatures {
         buildConfig = true
@@ -93,15 +93,15 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file('takeajuice-olga.keystore')
+            storeFile file('app-teste-felipe-olga.keystore')
             storePassword '12345678' 
-            keyAlias 'takeajuice-olga'
+            keyAlias 'app-teste-felipe-olga'
             keyPassword '12345678'
         }
          release {
-            storeFile file('takeajuice-olga.keystore')
+            storeFile file('app-teste-felipe-olga.keystore')
             storePassword '12345678'
-            keyAlias 'takeajuice-olga'
+            keyAlias 'app-teste-felipe-olga'
 
 
 
