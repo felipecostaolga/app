@@ -1,4 +1,4 @@
-package br.com.delivery.testerobson;
+package br.com.delivery.testerobsond;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

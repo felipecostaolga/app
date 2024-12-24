@@ -1,4 +1,4 @@
-package br.com.delivery.testerobson;
+package br.com.delivery.testerobsond;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
