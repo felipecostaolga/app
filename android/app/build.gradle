@@ -78,10 +78,10 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.testerobsonx"
+    namespace "br.com.delivery.testerobsony"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.testerobsonx"
+        applicationId "br.com.delivery.testerobsony"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 100
@@ -93,15 +93,15 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file('testerobsonx-olga.keystore')
+            storeFile file('testerobsony-olga.keystore')
             storePassword '12345678' 
-            keyAlias 'testerobsonx-olga'
+            keyAlias 'testerobsony-olga'
             keyPassword '12345678'
         }
          release {
-            storeFile file('testerobsonx-olga.keystore')
+            storeFile file('testerobsony-olga.keystore')
             storePassword '12345678'
-            keyAlias 'testerobsonx-olga'
+            keyAlias 'testerobsony-olga'
 
 
 
