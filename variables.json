@@ -1,7 +1,7 @@
 {
-  "url": "www.google.com",
-  "primaryColor": "#ffffff",
-  "secondaryColor": "#ffffff",
+  "url": "https://bombeef.olga.tech/",
+  "primaryColor": "#fe5927",
+  "secondaryColor": "#fe5927",
   "OneSignalKey": "",
   "olgaApi": "https://api.olga.tech/",
   "olgaApiFood": "https://api.food.olga.tech"
