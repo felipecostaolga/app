@@ -84,8 +84,8 @@ android {
         applicationId "undefined"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 100
-        versionName "100.1"
+        versionCode 104
+        versionName "104.1"
     }
       buildFeatures {
         buildConfig = true
@@ -93,15 +93,15 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file('testerobsony-olga.keystore')
+            storeFile file('testerobsony-olga-olga.keystore')
             storePassword '12345678' 
-            keyAlias 'testerobsony-olga'
+            keyAlias 'testerobsony-olga-olga'
             keyPassword '12345678'
         }
          release {
-            storeFile file('testerobsony-olga.keystore')
+            storeFile file('testerobsony-olga-olga.keystore')
             storePassword '12345678'
-            keyAlias 'testerobsony-olga'
+            keyAlias 'testerobsony-olga-olga'
 
 
 
