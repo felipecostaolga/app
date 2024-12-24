@@ -78,14 +78,14 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.testerobsony"
+    namespace "undefined"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.testerobsony"
+        applicationId "undefined"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 103
-        versionName "103.1"
+        versionCode 100
+        versionName "100.1"
     }
       buildFeatures {
         buildConfig = true
