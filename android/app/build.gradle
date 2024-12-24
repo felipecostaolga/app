@@ -84,8 +84,8 @@ android {
         applicationId "br.com.delivery.testerobsony"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 100
-        versionName "100.1"
+        versionCode 101
+        versionName "101.1"
     }
       buildFeatures {
         buildConfig = true
