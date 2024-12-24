@@ -78,14 +78,14 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.app-teste-felipe"
+    namespace "br.com.delivery.testerobson"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.app-teste-felipe"
+        applicationId "br.com.delivery.testerobson"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 109
-        versionName "109.1"
+        versionCode 100
+        versionName "100.1"
     }
       buildFeatures {
         buildConfig = true
@@ -93,15 +93,15 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file('app-teste-felipe.keystore')
+            storeFile file('testerobson-olga.keystore')
             storePassword '12345678' 
-            keyAlias 'app-teste-felipe'
+            keyAlias 'testerobson-olga'
             keyPassword '12345678'
         }
          release {
-            storeFile file('app-teste-felipe.keystore')
+            storeFile file('testerobson-olga.keystore')
             storePassword '12345678'
-            keyAlias 'app-teste-felipe'
+            keyAlias 'testerobson-olga'
 
 
 

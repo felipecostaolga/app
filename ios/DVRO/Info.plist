@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>pt-br</string>
 	<key>CFBundleDisplayName</key>
-	<string>app-teste-felipe</string>
+	<string>teste robson</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIcons</key>
@@ -19,7 +19,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>br.com.delivery.app-teste-felipe</string>
+	<string>br.com.delivery.testerobson</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>20</string>
 	<key>CFBundleName</key>
@@ -27,11 +27,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>109.1</string>
+	<string>100.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>109</string>
+	<string>100</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
