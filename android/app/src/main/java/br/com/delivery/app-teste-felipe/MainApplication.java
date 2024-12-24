@@ -1,4 +1,4 @@
-package undefined;
+package br.com.delivery.app-teste-felipe;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
