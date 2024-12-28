@@ -1,4 +1,4 @@
-package br.com.delivery.appteste2;
+package br.com.delivery.appteste;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

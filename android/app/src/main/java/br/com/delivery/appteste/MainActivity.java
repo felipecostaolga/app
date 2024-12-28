@@ -1,4 +1,4 @@
-package br.com.delivery.appteste2;
+package br.com.delivery.appteste;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

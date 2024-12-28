@@ -78,10 +78,10 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.appteste2"
+    namespace "br.com.delivery.appteste"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.appteste2"
+        applicationId "br.com.delivery.appteste"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 100
@@ -93,15 +93,15 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file('appteste2.keystore')
+            storeFile file('appteste.keystore')
             storePassword '12345678' 
-            keyAlias 'appteste2'
+            keyAlias 'appteste'
             keyPassword '12345678'
         }
          release {
-            storeFile file('appteste2.keystore')
+            storeFile file('appteste.keystore')
             storePassword '12345678'
-            keyAlias 'appteste2'
+            keyAlias 'appteste'
 
 
 
