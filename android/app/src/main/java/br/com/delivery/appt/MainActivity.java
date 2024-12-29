@@ -1,4 +1,4 @@
-package br.com.delivery.appfinish;
+package br.com.delivery.appt;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

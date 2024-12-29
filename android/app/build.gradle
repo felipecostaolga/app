@@ -78,10 +78,10 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.appfinish"
+    namespace "br.com.delivery.appt"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.appfinish"
+        applicationId "br.com.delivery.appt"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 100
@@ -93,15 +93,15 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file('appfinish-olga.keystore')
+            storeFile file('appt-olga.keystore')
             storePassword '12345678' 
-            keyAlias 'appfinish-olga'
+            keyAlias 'appt-olga'
             keyPassword '12345678'
         }
          release {
-            storeFile file('appfinish-olga.keystore')
+            storeFile file('appt-olga.keystore')
             storePassword '12345678'
-            keyAlias 'appfinish-olga'
+            keyAlias 'appt-olga'
 
 
 

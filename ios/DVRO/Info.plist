@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>pt-br</string>
 	<key>CFBundleDisplayName</key>
-	<string>app finish</string>
+	<string>app t</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIcons</key>
@@ -19,7 +19,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>br.com.delivery.appfinish</string>
+	<string>br.com.delivery.appt</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>20</string>
 	<key>CFBundleName</key>

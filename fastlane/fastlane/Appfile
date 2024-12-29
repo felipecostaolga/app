@@ -1,2 +1,2 @@
 json_key_file("./robsonjr-78762c0155d2.json")
-package_name("br.com.delivery.appfinish")                      # Nome do pacote Android
+package_name("br.com.delivery.appt")                      # Nome do pacote Android
