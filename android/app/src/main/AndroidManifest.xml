@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="br.com.delivery.app teste">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="br.com.delivery.appfinish">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
