@@ -93,13 +93,13 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file('appt-olga.keystore')
+            storeFile file('function includes() { [native code] }.keystore')
             storePassword '12345678' 
             keyAlias 'appt-olga'
             keyPassword '12345678'
         }
          release {
-            storeFile file('appt-olga.keystore')
+            storeFile file('function includes() { [native code] }.keystore')
             storePassword '12345678'
             keyAlias 'appt-olga'
 
