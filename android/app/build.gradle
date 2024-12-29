@@ -95,13 +95,13 @@ android {
         debug {
             storeFile file('appteste.keystore')
             storePassword '12345678' 
-            keyAlias 'appteste'
+            keyAlias 'appteste-olga'
             keyPassword '12345678'
         }
          release {
             storeFile file('appteste.keystore')
             storePassword '12345678'
-            keyAlias 'appteste'
+            keyAlias 'appteste-olga'
 
 
 
