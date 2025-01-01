@@ -1,4 +1,4 @@
-package br.com.delivery.appt;
+package br.com.delivery.ta;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
