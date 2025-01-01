@@ -1,4 +1,4 @@
-package br.com.delivery.ta;
+package br.com.delivery.xp;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
