@@ -26,9 +26,11 @@ jobs:
           node-version: 18
 
       - name: Setup Ruby
-        uses: actions/setup-ruby@v2
+        uses: actions/setup-ruby@v1
         with:
           ruby-version: '3.0'
+          bundler-cache: true
+
 
       - name: Install Dependencies
         run: |
