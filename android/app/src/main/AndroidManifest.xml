@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="br.com.delivery.xp">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="br.com.delivery.xxf">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 

@@ -1,4 +1,4 @@
-package br.com.delivery.xp;
+package br.com.delivery.xxf;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
