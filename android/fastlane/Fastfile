@@ -1,41 +1,42 @@
 default_platform(:android)
 
 platform :android do
-  desc "Runs all the tests"
-  lane :test do
-    gradle(task: "test")
-  end
-
-  desc "Submit a new Beta Build to Crashlytics Beta"
-  lane :beta do
-    gradle(task: " bundleRelease")  
-    crashlytics
-  end
-
-  desc "Deploy a new version to the Google Play"
+  desc "Deploy (build .aab e envia para a Play Store)"
   lane :deploy do
-    gradle(task: " bundleRelease")  
-    upload_to_play_store(
-      track: "production"              
+    gradle(
+      task: "bundle",
+      build_type: "Release"
+    )
+
+    supply(
+      aab: "app/build/outputs/bundle/release/app-release.aab",
+      track: "production",
+      json_key: ENV["ANDROID_JSON_KEY_PATH"], 
+      package_name: "br.com.delivery.thefamous", 
+      skip_upload_images: true, 
+      skip_upload_screenshots: true,
+      skip_upload_changelogs: false, 
+      skip_upload_metadata: true 
     )
   end
-end
-default_platform(:ios)
 
-platform :ios do
-  desc "Construir o aplicativo"
-  lane :build do
-    build_app(scheme: "DVRO")
-  end
+  desc "Cria o app do zero na Play Store"
+  lane :create_app do
+    gradle(
+      task: "bundle",
+      build_type: "Release"
+    )
 
-  desc "Executar testes"
-  lane :test do
-    run_tests(scheme: "DVRO")
-  end
-
-  desc "Lançar para a App Store"
-  lane :release do
-    build_app(scheme: "DVRO")
-    upload_to_app_store
+    supply(
+      aab: "app/build/outputs/bundle/release/app-release.aab",
+      track: "production",
+      json_key: ENV["ANDROID_JSON_KEY_PATH"],
+      package_name: "br.com.delivery.thefamous",
+      skip_upload_images: true, 
+      skip_upload_screenshots: true, 
+      skip_upload_changelogs: true, 
+      skip_upload_metadata: true, 
+      create_app_package_name: "br.com.delivery.thefamous" 
+    )
   end
 end

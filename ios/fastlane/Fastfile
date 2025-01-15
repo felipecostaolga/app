@@ -1,27 +1,32 @@
-# This file contains the fastlane.tools configuration
-# You can find the documentation at https://docs.fastlane.tools
-#
-# For a list of all available actions, check out
-#
-#     https://docs.fastlane.tools/actions
-#
-# For a list of all available plugins, check out
-#
-#     https://docs.fastlane.tools/plugins/available-plugins
-#
-
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
-
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
-  lane :custom_lane do
-    increment_build_number(xcodeproj: "/Users/felipecosta/Downloads/app-generator/src/app/ios/DVRO.xcodeproj") # Caminho direto para o .xcodeproj
-    build_app(workspace: "/Users/felipecosta/Downloads/app-generator/src/app/ios/DVRO.xcworkspace")
-    upload_to_testflight(api_key_path: "./fastlane/api_key.json")
+  desc "Deploy (gera .ipa e envia para TestFlight/App Store)"
+  lane :deploy do
+    build_app(
+      workspace: "DVRO.xcworkspace",
+      scheme: "DVRO",
+      configuration: "Release",
+      export_method: "app-store"
+    )
+
+    upload_to_app_store(
+      app_identifier: "br.com.delivery.app",
+      apple_id: '6467809101',
+      team_id: 'Z72V34LC55',
+      itc_provider: ENV["APPLE_ITC_PROVIDER"],
+      skip_metadata: true,
+      skip_screenshots: true
+    )
+  end
+
+  desc "Cria o app no App Store Connect (caso não exista)"
+  lane :create_app do
+    produce(
+      app_identifier: "br.com.delivery.app",
+      app_name: "SeuApp",
+      language: "English",
+      sku: "seuapp-sku-123"
+    )
   end
 end
-
-
