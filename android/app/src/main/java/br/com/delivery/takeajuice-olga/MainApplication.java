@@ -1,4 +1,4 @@
-package br.com.delivery.olgaa;
+package br.com.delivery.undefined;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

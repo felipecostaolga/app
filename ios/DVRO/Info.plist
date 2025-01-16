@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>pt-br</string>
 	<key>CFBundleDisplayName</key>
-	<string>olgaa</string>
+	<string>Take a Juice</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIcons</key>
@@ -19,7 +19,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>br.com.delivery.olgaa</string>
+	<string>br.com.delivery.undefined</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>20</string>
 	<key>CFBundleName</key>

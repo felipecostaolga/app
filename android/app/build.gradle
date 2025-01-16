@@ -78,10 +78,10 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.olgaa"
+    namespace "br.com.delivery.undefined"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.olgaa"
+        applicationId "br.com.delivery.undefined"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 100
@@ -94,9 +94,9 @@ android {
     signingConfigs {
     
          release {
-            storeFile file('olgaa-olga.keystore')
+            storeFile file('takeajuice-olga.keystore')
             storePassword '12345678'
-            keyAlias 'olgaa-olga'
+            keyAlias 'takeajuice-olga'
             keyPassword '12345678'
         }
     }
