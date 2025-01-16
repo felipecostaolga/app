@@ -22,8 +22,8 @@ jobs:
       # 3) Configurar e Baixar o Keystore do S3
       - name: Download Keystore from S3
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: AKIAWBW7QCY45GTFH6XK
+          AWS_SECRET_ACCESS_KEY: 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
           AWS_DEFAULT_REGION: us-east-2  # Ajuste a região se for diferente
         run: |
           # Configurar a AWS CLI usando as variáveis de ambiente acima
