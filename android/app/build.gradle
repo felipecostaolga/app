@@ -84,8 +84,8 @@ android {
         applicationId "br.com.delivery.thefamous"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 122
-        versionName "122.1"
+        versionCode 123
+        versionName "123.1"
     }
       buildFeatures {
         buildConfig = true
@@ -95,13 +95,13 @@ android {
         debug {
             storeFile file('thefamous-olga.keystore')
             storePassword '12345678' 
-            keyAlias 'thefamous-olga-olga'
+            keyAlias 'thefamous-olga'
             keyPassword '12345678'
         }
          release {
             storeFile file('thefamous-olga.keystore')
             storePassword '12345678'
-            keyAlias 'thefamous-olga-olga'
+            keyAlias 'thefamous-olga'
 
 
 
