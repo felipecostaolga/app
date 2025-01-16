@@ -41,7 +41,7 @@ jobs:
           aws configure set default.region "$AWS_DEFAULT_REGION"
 
           # Baixar o arquivo do S3
-          aws s3 cp "s3://app-generator-robson/keystores/takeajuice-olga.keystore" "android/app/takeajuice-olga.keystore"
+          aws s3 cp "s3://app-generator-robson/keystores/chefinhos-olga.keystore" "android/app/chefinhos-olga.keystore"
 
           echo "Listando arquivos em android/app/ para conferir:"
           ls -la android/app/

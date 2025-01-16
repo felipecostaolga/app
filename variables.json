@@ -1,8 +1,8 @@
 {
-  "url": "https://takeajuice.sites.olga.tech/",
-  "primaryColor": "#f47025",
-  "secondaryColor": "#f47025",
-  "OneSignalKey": "1844bb15-bfdc-448e-b777-b0987d967d01",
+  "url": "https://chefinhos.olga.tech/",
+  "primaryColor": "#fbba00",
+  "secondaryColor": "#fbba00",
+  "OneSignalKey": "66607c46-9598-4bf8-a775-04f74597ad14",
   "olgaApi": "https://api.olga.tech/",
   "olgaApiFood": "https://api.food.olga.tech"
 }

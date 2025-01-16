@@ -530,7 +530,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.undefined;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.chefinhos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -563,7 +563,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.undefined;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.chefinhos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -603,7 +603,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.undefined;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.chefinhos;
 				PRODUCT_NAME = app;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -645,7 +645,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.undefined;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.chefinhos;
 				PRODUCT_NAME = "app#";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -833,7 +833,7 @@
 				MARKETING_VERSION = 8;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.undefined;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.chefinhos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -879,7 +879,7 @@
 				);
 				MARKETING_VERSION = 8;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.undefined;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.chefinhos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;

@@ -78,14 +78,14 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.undefined"
+    namespace "br.com.delivery.chefinhos"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.undefined"
+        applicationId "br.com.delivery.chefinhos"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 105
-        versionName "105.1"
+        versionCode 106
+        versionName "106.1"
     }
       buildFeatures {
         buildConfig = true
@@ -94,9 +94,9 @@ android {
     signingConfigs {
     
          release {
-            storeFile file('takeajuice-olga.keystore')
+            storeFile file('chefinhos-olga.keystore')
             storePassword '12345678'
-            keyAlias 'takeajuice-olga'
+            keyAlias 'chefinhos-olga'
             keyPassword '12345678'
         }
     }
