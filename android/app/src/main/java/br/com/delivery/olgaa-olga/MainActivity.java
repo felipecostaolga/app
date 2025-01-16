@@ -1,4 +1,4 @@
-package br.com.delivery.olga;
+package br.com.delivery.olgaa;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
