@@ -1,7 +1,7 @@
 {
-  "url": "https://thefamous.olga.tech",
-  "primaryColor": "#000000",
-  "secondaryColor": "#000000",
+  "url": "https://olga.tech/",
+  "primaryColor": "#fbba00",
+  "secondaryColor": "#fbba00",
   "OneSignalKey": "",
   "olgaApi": "https://api.olga.tech/",
   "olgaApiFood": "https://api.food.olga.tech"
