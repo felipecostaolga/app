@@ -84,8 +84,8 @@ android {
         applicationId "br.com.delivery.undefined"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 100
-        versionName "100.1"
+        versionCode 103
+        versionName "103.1"
     }
       buildFeatures {
         buildConfig = true
@@ -94,9 +94,9 @@ android {
     signingConfigs {
     
          release {
-            storeFile file('takeajuice-olga.keystore')
+            storeFile file('takeajuice.keystore')
             storePassword '12345678'
-            keyAlias 'takeajuice-olga'
+            keyAlias 'takeajuice'
             keyPassword '12345678'
         }
     }
