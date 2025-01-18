@@ -1,4 +1,4 @@
-package br.com.delivery.chefinhos;
+package br.com.delivery.sucao;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

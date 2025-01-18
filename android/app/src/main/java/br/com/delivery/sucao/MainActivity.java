@@ -1,4 +1,4 @@
-package br.com.delivery.chefinhos;
+package br.com.delivery.sucao;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

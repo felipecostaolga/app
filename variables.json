@@ -1,8 +1,8 @@
 {
-  "url": "https://chefinhos.olga.tech/",
-  "primaryColor": "#fbba00",
-  "secondaryColor": "#fbba00",
-  "OneSignalKey": "66607c46-9598-4bf8-a775-04f74597ad14",
+  "url": "https://sucao.olga.tech",
+  "primaryColor": "#ffffff",
+  "secondaryColor": "#ffffff",
+  "OneSignalKey": "f3f8fd48-dbba-4c45-bbc3-f2f0464c1e95",
   "olgaApi": "https://api.olga.tech/",
   "olgaApiFood": "https://api.food.olga.tech"
 }
