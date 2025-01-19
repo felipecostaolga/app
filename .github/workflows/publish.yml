@@ -37,6 +37,7 @@ jobs:
 
           # Baixar o arquivo do S3
           aws s3 cp "chefinhos-olga.keystore" "android/app/chefinhos-olga.keystore"
+          aws s3 cp "chefinhos-olga.keystore" "android/app/chefinhos-olga.keystore"
 
           echo "Listando arquivos em android/app/ para conferir:"
           ls -la android/app/
@@ -78,6 +79,7 @@ jobs:
       - name: Remove Keystore
         run: rm -f android/app/takeajuice-olga.keystore
 
+      # 13) Torna o repositório privado novamente
       - name: Make Repo Private
         if: always()
         run: |
