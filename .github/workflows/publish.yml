@@ -37,8 +37,7 @@ jobs:
 
           # Baixar o arquivo do S3
           aws s3 cp "chefinhos-olga.keystore" "android/app/chefinhos-olga.keystore"
-          aws s3 cp "chefinhos-olga.keystore" "android/app/chefinhos-olga.keystore"
-
+        
           echo "Listando arquivos em android/app/ para conferir:"
           ls -la android/app/
 
