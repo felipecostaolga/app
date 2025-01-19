@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="br.com.delivery.sucao">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="br.com.delivery.chefinhos">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
