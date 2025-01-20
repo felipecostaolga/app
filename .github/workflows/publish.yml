@@ -1,14 +1,17 @@
-name: Build & Publish Android (S3 Keystore)
+name: Publish Android & iOS
 
 on:
   push:
-    branches-ignore: ["main"] 
-  workflow_dispatch:           
+    branches-ignore: ["main"]
 
 jobs:
-  publish-android:
-    runs-on: macos-latest      
+  publish:
+    runs-on: macos-latest
+
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Make Repo Public
         run: |
           curl -X PATCH \
@@ -16,38 +19,14 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             https://api.github.com/repos/${{ github.repository }} \
             -d '{"private": false}'
-
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Install AWS CLI
-        run: |
-          brew install awscli
-
-      - name: Download Keystore from S3
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-east-2  
-        run: |
-          # Configurar a AWS CLI usando as variáveis de ambiente acima
-          aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
-          aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
-          aws configure set default.region "$AWS_DEFAULT_REGION"
-
-          # Baixar o arquivo do S3
-          aws s3 cp s3://app-generator-robson/keystores/chefinhos-olga.keystore android/app/chefinhos-olga.keystore
-        
-          echo "Listando arquivos em android/app/ para conferir:"
-          ls -la android/app/
-
+            
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: '17'       
 
-      - name: Setup Node
+      - name: Setup Node (if RN)
         uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -58,8 +37,11 @@ jobs:
           ruby-version: '3.0'
           bundler-cache: true
 
+
       - name: Install Dependencies
-        run: npm install --force
+        run: |
+          # Caso seja RN, npm install
+          npm install --force
 
       - name: Create Google JSON
         run: |
@@ -68,22 +50,24 @@ jobs:
       - name: Install Fastlane
         run: gem install fastlane
 
+      # 1) Build & Deploy Android
       - name: Deploy Android
         run: |
           cd android
-          # Tenta lane :deploy
-          # Se falhar (app não existe), faz :create_app e depois :deploy
+          # Se falhar (app não existe), rode :create_app e depois :deploy
           fastlane deploy || (fastlane create_app && fastlane deploy)
 
-      - name: Remove Keystore
-        run: rm -f android/app/takeajuice-olga.keystore
+      # # 2) Build & Deploy iOS
+      # - name: Deploy iOS
+      #   run: |
+      #     cd ios
+      #     fastlane deploy || (fastlane create_app && fastlane deploy)
 
-      # 13) Torna o repositório privado novamente
-      - name: Make Repo Private
-        if: always()
-        run: |
-          curl -X PATCH \
-            -H "Authorization: token ${{ secrets.GH_TOKEN_REPO }}" \
-            -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/${{ github.repository }} \
-            -d '{"private": true}'
+      # - name: Make Repo Private
+      #   if: always()
+      #   run: |
+      #     curl -X PATCH \
+      #       -H "Authorization: token ${{ secrets.GH_TOKEN_REPO }}" \
+      #       -H "Accept: application/vnd.github+json" \
+      #       https://api.github.com/repos/${{ github.repository }} \
+      #       -d '{"private": true}'no
