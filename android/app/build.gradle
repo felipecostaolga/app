@@ -84,8 +84,8 @@ android {
         applicationId "br.com.delivery.chefinhos"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 113
-        versionName "113.1"
+        versionCode 114
+        versionName "114.1"
     }
       buildFeatures {
         buildConfig = true
