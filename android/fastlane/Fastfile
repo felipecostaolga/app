@@ -8,20 +8,7 @@ platform :android do
       build_type: "Release"
     )
 
-    # Verifica se o app existe
-    begin
-      UI.message("Verificando se o app existe na Google Play...")
-      supply(
-        json_key: ENV["ANDROID_JSON_KEY_PATH"],
-        package_name: "br.com.delivery.chefinhos",
-        validate_only: true # Apenas verifica se o app existe
-      )
-    rescue => e
-      UI.error("App não encontrado. Criando o app na Play Store...")
-      create_app()
-    end
-
-    # Realiza o deploy
+    # Realiza o deploy (upload e publicação do .aab)
     supply(
       aab: "app/build/outputs/bundle/release/app-release.aab",
       track: "production",
@@ -31,26 +18,6 @@ platform :android do
       skip_upload_screenshots: true,
       skip_upload_changelogs: false, 
       skip_upload_metadata: true 
-    )
-  end
-
-  desc "Cria o app do zero na Play Store"
-  lane :create_app do
-    gradle(
-      task: "bundle",
-      build_type: "Release"
-    )
-
-    UI.message("Criando o app na Google Play...")
-    supply(
-      aab: "app/build/outputs/bundle/release/app-release.aab",
-      track: "production",
-      json_key: ENV["ANDROID_JSON_KEY_PATH"],
-      package_name: "br.com.delivery.chefinhos",
-      skip_upload_images: true, 
-      skip_upload_screenshots: true, 
-      skip_upload_changelogs: true, 
-      skip_upload_metadata: true
     )
   end
 end
