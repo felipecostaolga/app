@@ -1,23 +1,73 @@
-default_platform(:android)
+name: Publish Android & iOS
 
-platform :android do
-  desc "Deploy (build .aab e envia para a Play Store)"
-  lane :deploy do
-    gradle(
-      task: "bundle",
-      build_type: "Release"
-    )
+on:
+  push:
+    branches-ignore: ["main"]
 
-    # Realiza o deploy (upload e publicação do .aab)
-    supply(
-      aab: "app/build/outputs/bundle/release/app-release.aab",
-      track: "production",
-      json_key: ENV["ANDROID_JSON_KEY_PATH"], 
-      package_name: "br.com.delivery.chefinhos", 
-      skip_upload_images: true, 
-      skip_upload_screenshots: true,
-      skip_upload_changelogs: false, 
-      skip_upload_metadata: true 
-    )
-  end
-end
+jobs:
+  publish:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Make Repo Public
+        run: |
+          curl -X PATCH \
+            -H "Authorization: token ${{ secrets.GH_TOKEN_REPO }}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/${{ github.repository }} \
+            -d '{"private": false}'
+            
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'       
+
+      - name: Setup Node (if RN)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+
+
+      - name: Install Dependencies
+        run: |
+          # Caso seja RN, npm install
+          npm install --force
+
+      - name: Create Google JSON
+        run: |
+          echo "${{ secrets.ANDROID_JSON_KEY }}" > android/fastlane/google-play-key.json
+
+      - name: Install Fastlane
+        run: gem install fastlane
+
+      # 1) Build & Deploy Android
+      - name: Deploy Android
+        run: |
+          cd android
+          # Se falhar (app não existe), rode :create_app e depois :deploy
+          fastlane deploy || (fastlane create_app && fastlane deploy)
+
+      # # 2) Build & Deploy iOS
+      # - name: Deploy iOS
+      #   run: |
+      #     cd ios
+      #     fastlane deploy || (fastlane create_app && fastlane deploy)
+
+      # - name: Make Repo Private
+      #   if: always()
+      #   run: |
+      #     curl -X PATCH \
+      #       -H "Authorization: token ${{ secrets.GH_TOKEN_REPO }}" \
+      #       -H "Accept: application/vnd.github+json" \
+      #       https://api.github.com/repos/${{ github.repository }} \
+      #       -d '{"private": true}'
