@@ -10,14 +10,7 @@ jobs:
     runs-on: macos-latest       # Pode ser ubuntu-latest se não precisar de macOS
 
     steps:
-      # 1) Torna o repositório público
-      - name: Make Repo Public
-        run: |
-          curl -X PATCH \
-            -H "Authorization: token ${{ secrets.GH_TOKEN_REPO }}" \
-            -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/felipecostaolga/app \
-            -d '{"private": false}'
+    
 
      
 
@@ -72,6 +65,14 @@ jobs:
         with:
           ruby-version: '3.0'
           bundler-cache: true
+    # 1) Torna o repositório público
+      - name: Make Repo Public
+        run: |
+          curl -X PATCH \
+            -H "Authorization: token ${{ secrets.GH_TOKEN_REPO }}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/felipecostaolga/app \
+            -d '{"private": false}'
 
       # 8) Instalar dependências (Node)
       - name: Install Dependencies
