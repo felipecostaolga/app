@@ -19,6 +19,8 @@ jobs:
             https://api.github.com/repos/felipecostaolga/app \
             -d '{"private": false}'
 
+     
+
       # 2) Checkout do repositório
       - name: Checkout
         uses: actions/checkout@v3
@@ -27,6 +29,11 @@ jobs:
       - name: Install AWS CLI
         run: |
           brew install awscli
+
+        # 9) Criar o arquivo google-play-key.json (para Supply)
+      - name: Create Google JSON
+        run: |
+          echo "${{ secrets.ANDROID_JSON_KEY }}" > android/fastlane/google-play-key.json    
 
       # 4) Configurar e Baixar o Keystore do S3
       - name: Download Keystore from S3
@@ -70,10 +77,7 @@ jobs:
       - name: Install Dependencies
         run: npm install --force
 
-      # 9) Criar o arquivo google-play-key.json (para Supply)
-      - name: Create Google JSON
-        run: |
-          echo "${{ secrets.ANDROID_JSON_KEY }}" > android/fastlane/google-play-key.json
+     
 
       # 10) Instalar Fastlane
       - name: Install Fastlane
