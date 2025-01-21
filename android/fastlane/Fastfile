@@ -10,7 +10,6 @@ platform :android do
 
     supply(
       aab: "app/build/outputs/bundle/release/app-release.aab",
-      aab: "app/build/outputs/bundle/release/app-release.aab",
       track: "production"
     )
   end
