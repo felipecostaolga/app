@@ -24,7 +24,7 @@ platform :android do
     supply(
       aab: "app/build/outputs/bundle/release/app-release.aab",
       track: "production",
-      json_key: "./keyrobson.json",
+      json_key: "./google-play-key.json",
       package_name: "br.com.delivery.chefinhos",
       skip_upload_images: true, 
       skip_upload_screenshots: true, 

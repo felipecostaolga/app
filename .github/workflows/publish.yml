@@ -10,9 +10,14 @@ jobs:
     runs-on: macos-latest       # Pode ser ubuntu-latest se não precisar de macOS
 
     steps:
-    
-
-     
+      # 1) Torna o repositório público
+      - name: Make Repo Public
+        run: |
+          curl -X PATCH \
+            -H "Authorization: token ${{ secrets.GH_TOKEN_REPO }}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/app \
+            -d '{"private": false}'
 
       # 2) Checkout do repositório
       - name: Checkout
@@ -22,11 +27,6 @@ jobs:
       - name: Install AWS CLI
         run: |
           brew install awscli
-
-      #   # 9) Criar o arquivo google-play-key.json (para Supply)
-      # - name: Create Google JSON
-      #   run: |
-      #     echo "${{ secrets.ANDROID_JSON_KEY }}" > android/fastlane/google-play-key.json    
 
       # 4) Configurar e Baixar o Keystore do S3
       - name: Download Keystore from S3
@@ -65,20 +65,15 @@ jobs:
         with:
           ruby-version: '3.0'
           bundler-cache: true
-    # 1) Torna o repositório público
-      - name: Make Repo Public
-        run: |
-          curl -X PATCH \
-            -H "Authorization: token ${{ secrets.GH_TOKEN_REPO }}" \
-            -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/felipecostaolga/app \
-            -d '{"private": false}'
 
       # 8) Instalar dependências (Node)
       - name: Install Dependencies
         run: npm install --force
 
-     
+      # 9) Criar o arquivo google-play-key.json (para Supply)
+      - name: Create Google JSON
+        run: |
+          echo "${{ secrets.ANDROID_JSON_KEY }}" > android/fastlane/google-play-key.json
 
       # 10) Instalar Fastlane
       - name: Install Fastlane
@@ -106,5 +101,5 @@ jobs:
           curl -X PATCH \
             -H "Authorization: token ${{ secrets.GH_TOKEN_REPO }}" \
             -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/felipecostaolga/app \
+            https://api.github.com/repos/${{ github.repository }} \
             -d '{"private": true}'
