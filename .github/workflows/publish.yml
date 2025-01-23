@@ -72,7 +72,7 @@ jobs:
 
      # 9) Criar o arquivo google-play-key.json (para Supply)
       - name: Create Google JSON
-        run: echo "${{ secrets.ANDROID_JSON_KEY }}" > android/google-play-key.json
+        run: echo "${{ secrets.ANDROID_JSON_KEY }}" > android/fastlane/google-play-key.json
 
 
       # 10) Instalar Fastlane
