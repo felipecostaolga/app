@@ -78,14 +78,14 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.xxf"
+    namespace "br.com.delivery.chefinhos"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.xxf"
+        applicationId "br.com.delivery.chefinhos"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 100
-        versionName "100.1"
+        versionCode 130
+        versionName "130.1"
     }
       buildFeatures {
         buildConfig = true
@@ -93,15 +93,15 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file('xxf-olga.keystore')
+            storeFile file('chefinhos-olga.keystore')
             storePassword '12345678' 
-            keyAlias 'xxf-olga'
+            keyAlias 'chefinhos-olga'
             keyPassword '12345678'
         }
          release {
-            storeFile file('xxf-olga.keystore')
+            storeFile file('chefinhos-olga.keystore')
             storePassword '12345678'
-            keyAlias 'xxf-olga'
+            keyAlias 'chefinhos-olga'
 
 
 
