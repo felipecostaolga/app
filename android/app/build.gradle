@@ -92,24 +92,11 @@ android {
     }
 
     signingConfigs {
-        debug {
-            storeFile file('chefinhos-olga.keystore')
-            storePassword '12345678' 
-            keyAlias 'chefinhos-olga'
-            keyPassword '12345678'
-        }
+      
          release {
             storeFile file('chefinhos-olga.keystore')
             storePassword '12345678'
             keyAlias 'chefinhos-olga'
-
-
-
-
-
-
-
-
             keyPassword '12345678'
         }
     }
