@@ -84,8 +84,8 @@ android {
         applicationId "br.com.delivery.sucao"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 101
-        versionName "101.1"
+        versionCode 103
+        versionName "103.1"
     }
       buildFeatures {
         buildConfig = true
