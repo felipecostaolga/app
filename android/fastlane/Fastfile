@@ -10,13 +10,7 @@ platform :android do
 
     supply(
       aab: "app/build/outputs/bundle/release/app-release.aab",
-      track: "production",
-      json_key: ENV["ANDROID_JSON_KEY_PATH"], 
-      package_name: "br.com.delivery.chefinhos", 
-      skip_upload_images: true, 
-      skip_upload_screenshots: true,
-      skip_upload_changelogs: false, 
-      skip_upload_metadata: true 
+      track: "production"
     )
   end
 
@@ -30,13 +24,13 @@ platform :android do
     supply(
       aab: "app/build/outputs/bundle/release/app-release.aab",
       track: "production",
-      json_key: ENV["ANDROID_JSON_KEY_PATH"],
+      json_key: "./google-play-key.json",
       package_name: "br.com.delivery.chefinhos",
       skip_upload_images: true, 
       skip_upload_screenshots: true, 
       skip_upload_changelogs: true, 
       skip_upload_metadata: true, 
-      create_app_package_name: "br.com.delivery.chefinhos" 
+      # create_app_package_name: "br.com.delivery.sucao" 
     )
   end
 end
