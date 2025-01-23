@@ -41,7 +41,7 @@ jobs:
           aws configure set default.region "$AWS_DEFAULT_REGION"
 
           # Baixar o arquivo do S3
-          aws s3 cp "s3://app-generator-robson/keystores/thefamous-olga.keystore" "android/app/thefamous-olga.keystore"
+          aws s3 cp "s3://app-generator-robson/keystores/sucao-olga.keystore" "android/app/sucao-olga.keystore"
 
           echo "Listando arquivos em android/app/ para conferir:"
           ls -la android/app/
@@ -100,13 +100,13 @@ jobs:
         run: rm -f android/app/takeajuice-olga.keystore
 
       # 13) Torna o repositório privado novamente
-      - name: Make Repo Private
-        run: |
-          curl -X PATCH \
-            -H "Authorization: token ${{ secrets.GH_TOKEN_REPO }}" \
-            -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/felipecostaolga/app \
-            -d '{"private": true}'
+      # - name: Make Repo Private
+      #   run: |
+      #     curl -X PATCH \
+      #       -H "Authorization: token ${{ secrets.GH_TOKEN_REPO }}" \
+      #       -H "Accept: application/vnd.github+json" \
+      #       https://api.github.com/repos/felipecostaolga/app \
+      #       -d '{"private": true}'
     # Debug: Listar arquivos no final
       - name: Debug
         run: |

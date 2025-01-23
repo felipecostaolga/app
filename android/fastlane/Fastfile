@@ -25,12 +25,12 @@ platform :android do
       aab: "app/build/outputs/bundle/release/app-release.aab",
       track: "production",
       json_key: "./google-play-key.json",
-      package_name: "br.com.delivery.thefamous",
+      package_name: "br.com.delivery.sucao",
       skip_upload_images: true, 
       skip_upload_screenshots: true, 
       skip_upload_changelogs: true, 
       skip_upload_metadata: true, 
-      # create_app_package_name: "br.com.delivery.thefamous" 
+      # create_app_package_name: "br.com.delivery.sucao" 
     )
   end
 end
