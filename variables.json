@@ -1,8 +1,8 @@
 {
-  "url": "https://sucao.olga.tech",
-  "primaryColor": "#ffffff",
-  "secondaryColor": "#ffffff",
-  "OneSignalKey": "f3f8fd48-dbba-4c45-bbc3-f2f0464c1e95",
+  "url": "https://olga.tech/",
+  "primaryColor": "#fbba00",
+  "secondaryColor": "#fbba00",
+  "OneSignalKey": "178a2912-1e16-4b72-9e22-3a8d5c4aad4b",
   "olgaApi": "https://api.olga.tech/",
   "olgaApiFood": "https://api.food.olga.tech"
 }
