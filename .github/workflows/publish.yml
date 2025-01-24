@@ -110,4 +110,19 @@ jobs:
           echo "Listando android/fastlane:"
           ls -la android/fastlane
 
+    #Notifica no discord
+      - name: Notify Discord
+        if: always()
+        run: |
+          if [ "${{ job.status }}" = "success" ]; then
+            curl -X POST -H "Content-Type: application/json" \
+            -d '{"content":"✅ Build & publicação do android Android *SUCESSO*! "}' \
+            ${{ secrets.DISCORD_WEBHOOK_URL }}
+          else
+            curl -X POST -H "Content-Type: application/json" \
+            -d '{"content":"❌Build & publicação do android Android  *FALHOU*."}' \
+            ${{ secrets.DISCORD_WEBHOOK_URL }}
+          fi
+     
+
       
