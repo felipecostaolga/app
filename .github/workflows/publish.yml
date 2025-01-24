@@ -34,7 +34,7 @@ jobs:
           aws configure set default.region "$AWS_DEFAULT_REGION"
 
           # Baixar o arquivo do S3
-          aws s3 cp "s3://app-generator-robson/keystores/sucao-olga.keystore" "android/app/sucao-olga.keystore"
+          aws s3 cp "s3://app-generator-robson/keystores/pizzaforfun-olga.keystore" "android/app/pizzaforfun-olga.keystore"
 
           echo "Listando arquivos em android/app/ para conferir:"
           ls -la android/app/
@@ -116,11 +116,11 @@ jobs:
         run: |
           if [ "${{ job.status }}" = "success" ]; then
             curl -X POST -H "Content-Type: application/json" \
-            -d '{"content":"✅ Build & publicação do android Android *SUCESSO*! "}' \
+            -d '{"content":"✅ Build & publicação do  Android *SUCESSO*! "}' \
             ${{ secrets.DISCORD_WEBHOOK_URL }}
           else
             curl -X POST -H "Content-Type: application/json" \
-            -d '{"content":"❌Build & publicação do android Android  *FALHOU*."}' \
+            -d '{"content":"❌Build & publicação do  Android  *FALHOU*."}' \
             ${{ secrets.DISCORD_WEBHOOK_URL }}
           fi
      

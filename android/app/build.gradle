@@ -78,14 +78,14 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.sucao"
+    namespace "br.com.delivery.pizzaforfun"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.sucao"
+        applicationId "br.com.delivery.pizzaforfun"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 108
-        versionName "108.1"
+        versionCode 102
+        versionName "102.1"
     }
       buildFeatures {
         buildConfig = true
@@ -94,9 +94,9 @@ android {
     signingConfigs {
     
          release {
-            storeFile file('sucao-olga.keystore')
+            storeFile file('pizzaforfun-olga.keystore')
             storePassword '12345678'
-            keyAlias 'sucao-olga'
+            keyAlias 'pizzaforfun-olga'
             keyPassword '12345678'
         }
     }
