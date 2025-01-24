@@ -78,14 +78,14 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.thefamous"
+    namespace "br.com.delivery.sucao"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.thefamous"
+        applicationId "br.com.delivery.sucao"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 167
-        versionName "167.1"
+        versionCode 108
+        versionName "108.1"
     }
       buildFeatures {
         buildConfig = true
@@ -94,9 +94,9 @@ android {
     signingConfigs {
     
          release {
-            storeFile file('thefamous-olga.keystore')
+            storeFile file('sucao-olga.keystore')
             storePassword '12345678'
-            keyAlias 'thefamous-olga'
+            keyAlias 'sucao-olga'
             keyPassword '12345678'
         }
     }
