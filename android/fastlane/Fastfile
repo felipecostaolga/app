@@ -30,7 +30,6 @@ platform :android do
       skip_upload_screenshots: true, 
       skip_upload_changelogs: true, 
       skip_upload_metadata: true, 
-      # create_app_package_name: "br.com.delivery.sucao" 
     )
   end
 end
