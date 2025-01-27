@@ -1,4 +1,4 @@
-package br.com.delivery.pizzaforfun;
+package br.com.delivery.jappadaquitanda;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

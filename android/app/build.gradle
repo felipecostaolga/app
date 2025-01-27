@@ -78,14 +78,14 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.pizzaforfun"
+    namespace "br.com.delivery.jappadaquitanda"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.pizzaforfun"
+        applicationId "br.com.delivery.jappadaquitanda"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 102
-        versionName "102.1"
+        versionCode 101
+        versionName "101.1"
     }
       buildFeatures {
         buildConfig = true
@@ -94,9 +94,9 @@ android {
     signingConfigs {
     
          release {
-            storeFile file('pizzaforfun-olga.keystore')
+            storeFile file('jappadaquitanda-olga.keystore')
             storePassword '12345678'
-            keyAlias 'pizzaforfun-olga'
+            keyAlias 'jappadaquitanda-olga'
             keyPassword '12345678'
         }
     }

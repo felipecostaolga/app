@@ -1,8 +1,8 @@
 {
-  "url": "https://pizzaforfun.olga.tech",
-  "primaryColor": "#1d1d1b",
-  "secondaryColor": "#1d1d1b",
-  "OneSignalKey": "bf2ae70f-1d5d-4387-993e-1caee46181cf",
+  "url": "https://jappadaquitanda.sites.olga.tech",
+  "primaryColor": "#000000",
+  "secondaryColor": "#000000",
+  "OneSignalKey": "f30407a0-09d0-46ac-9287-a6a6cc75ca21",
   "olgaApi": "https://api.olga.tech/",
   "olgaApiFood": "https://api.food.olga.tech"
 }

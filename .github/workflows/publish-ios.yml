@@ -1,0 +1,40 @@
+# name: Build & Publish iOS
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   publish-ios:
+#     runs-on: macos-latest
+
+#     steps:
+#       # 1. Baixar o código do repositório
+#       - name: Checkout
+#         uses: actions/checkout@v3
+
+#       # 2. Configurar o Ruby
+#       - name: Set up Ruby
+#         uses: actions/setup-ruby@v1
+#         with:
+#           ruby-version: '3.0'
+
+#       # 3. Instalar o Fastlane
+#       - name: Install Fastlane
+#         run: gem install fastlane
+
+#       # 4. Sincronizar Certificados e Profiles (ou criar novos)
+#       - name: Sync Certificates and Profiles
+#         env:
+#           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+#           FASTLANE_USER: ${{ secrets.APPLE_ID }}
+#           FASTLANE_PASSWORD: ${{ secrets.APPLE_SPECIFIC_PASSWORD }}
+#         run: fastlane match appstore
+
+#       # 5. Fazer o Build e Deploy para o App Store Connect
+#       - name: Build & Deploy iOS
+#         env:
+#           FASTLANE_USER: ${{ secrets.APPLE_ID }}
+#           FASTLANE_PASSWORD: ${{ secrets.APPLE_SPECIFIC_PASSWORD }}
+#         run: fastlane ios deploy

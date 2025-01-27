@@ -1,5 +1,6 @@
-default_platform(:android)
+default_platform(:ios)
 
+# Configuração para Android
 platform :android do
   desc "Deploy (build .aab e envia para a Play Store)"
   lane :deploy do
@@ -25,7 +26,7 @@ platform :android do
       aab: "app/build/outputs/bundle/release/app-release.aab",
       track: "production",
       json_key: "./google-play-key.json",
-      package_name: "br.com.delivery.pizzaforfun",
+      package_name: "br.com.delivery.jappadaquitanda",
       skip_upload_images: true, 
       skip_upload_screenshots: true, 
       skip_upload_changelogs: true, 
@@ -33,3 +34,5 @@ platform :android do
     )
   end
 end
+
+
