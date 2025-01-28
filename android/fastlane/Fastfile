@@ -1,4 +1,15 @@
-default_platform(:ios)
+# default_platform(:ios)
+
+
+desc "Faz deploy do Android e depois do iOS"
+  lane :deploy_all do
+    UI.message("=== Iniciando Deploy do Android... ===")
+    sh("fastlane android deploy")
+  
+    UI.message("=== Iniciando Deploy do iOS... ===")
+    sh("fastlane ios deploy")
+  end
+  
 
 # Configuração para Android
 platform :android do

@@ -75,7 +75,8 @@ jobs:
       - name: Deploy Android
         run: |
           cd android
-          fastlane deploy || (fastlane create_app && fastlane deploy)
+          fastlane deploy_all
+
 
       # 12) Remover Keystore (opcional)
       - name: Remove Keystore
