@@ -59,7 +59,7 @@ jobs:
 
       # 7) Instalar dependências (Node)
       - name: Install Dependencies
-        run: npm ci
+        run: npm install --force
 
       # 8) Criar google-play-key.json
       - name: Create Google JSON
