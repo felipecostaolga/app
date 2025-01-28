@@ -1,52 +1,45 @@
-name: Build & Publish Android (S3 Keystore)
+name: Build & Publish Android e iOS (S3 Keystore)
 
 on:
   push:
-    branches-ignore: ["master"]  
-  workflow_dispatch:           
+    branches-ignore: ["master"]
+  workflow_dispatch:
 
 jobs:
   publish-android:
-    runs-on: macos-latest      
+    runs-on: macos-latest
 
     steps:
-
-
       # 1) Checkout do repositório
       - name: Checkout
         uses: actions/checkout@v3
 
-      # 2) Instalar o AWS CLI (no macOS, usando brew)
+      # 2) Instalar o AWS CLI (para baixar keystore)
       - name: Install AWS CLI
-        run: |
-          brew install awscli
+        run: brew install awscli
 
       # 3) Configurar e Baixar o Keystore do S3
-      - name: Download Keystore from S3
+      - name: Download Keystore
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-east-2  
+          AWS_DEFAULT_REGION: us-east-2
         run: |
-          # Configurar a AWS CLI usando as variáveis de ambiente acima
           aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
           aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
           aws configure set default.region "$AWS_DEFAULT_REGION"
 
-          # Baixar o arquivo do S3
           aws s3 cp "s3://app-generator-robson/keystores/pizzaforfun-olga.keystore" "android/app/pizzaforfun-olga.keystore"
-
-          echo "Listando arquivos em android/app/ para conferir:"
           ls -la android/app/
 
-      # 4) Configurar JDK (17)
+      # 4) Configurar JDK 17
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      # 5) Configurar Node (Ex.: para React Native)
+      # 5) Configurar Node
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -59,82 +52,133 @@ jobs:
           ruby-version: '3.0'
           bundler-cache: true
 
-      # 7) Instalar dependências (Node)
+      # 7) Instalar dependências do Node
       - name: Install Dependencies
         run: npm install --force
 
-     # 8) Criar o arquivo google-play-key.json (para Supply)
+      # 8) Criar google-play-key.json
       - name: Create Google JSON
         run: echo "${{ secrets.ANDROID_JSON_KEY }}" | base64 --decode > android/google-play-key.json
 
-        #debug json
+      # 9) Debug JSON
       - name: Debug JSON
         run: |
-          echo "==== Content of google-play-key.json ===="
+          echo "==== Conteúdo de google-play-key.json ===="
           cat android/google-play-key.json
-          echo "========================================="
-      # 9) Instalar Fastlane
-      - name: Install Fastlane
-        env:
-          ANDROID_JSON_KEY: ${{ secrets.ANDROID_JSON_KEY }}
+          echo "=========================================="
 
+      # 10) Instalar Fastlane
+      - name: Install Fastlane
         run: gem install fastlane
-      # 8) Deploy Android (tenta -> se falhar, create_app -> tenta de novo)
+
+      # 11) Executar Build & Deploy do Android
       - name: Deploy Android
         run: |
           cd android
-          bundle exec fastlane android deploy || (bundle exec fastlane android create_app && bundle exec fastlane android deploy)
+          fastlane deploy || (fastlane create_app && fastlane deploy)
 
-      # 9) Remove keystore no final (limpeza)
+      # 12) Remover Keystore (opcional)
       - name: Remove Keystore
-        run: rm -f android/app/thefamous-olga.keystore
+        run: rm -f android/app/pizzaforfun-olga.keystore
 
+      # 13) Torna o repositório privado (opcional)
+      - name: Make Repo Private
+        run: |
+          curl -X PATCH \
+            -H "Authorization: token ${{ secrets.GH_TOKEN_REPO }}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/felipecostaolga/app \
+            -d '{"private": true}'
+
+      # 14) Debug final do Android
+      - name: Debug Android
+        run: |
+          echo "Listando arquivos no final do job Android:"
+          ls -R .
+          echo "Listando android/fastlane:"
+          ls -la android/fastlane/
+
+      # 15) Notificação Discord (Android)
+      - name: Notify Discord (Android)
+        if: always()
+        run: |
+          if [ "${{ job.status }}" = "success" ]; then
+            curl -X POST -H "Content-Type: application/json" \
+              -d '{"content":"✅ Build & publicação do Android *SUCESSO*! "}' \
+              ${{ secrets.DISCORD_WEBHOOK_URL }}
+          else
+            curl -X POST -H "Content-Type: application/json" \
+              -d '{"content":"❌Build & publicação do Android *FALHOU*."}' \
+              ${{ secrets.DISCORD_WEBHOOK_URL }}
+          fi
+
+  ## ------------------------------
+  ## Job para iOS (roda após Android)
+  ## ------------------------------
   publish-ios:
     runs-on: macos-latest
-    needs: publish-android  # só roda depois do Android
+    needs: publish-android  # Só inicia depois que o publish-android concluir
 
     steps:
       # 1) Checkout
       - name: Checkout
         uses: actions/checkout@v3
 
-      # 2) Setup Ruby + Cache Bundler
+      # 2) Setup Ruby
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
           ruby-version: '3.0'
+          bundler-cache: true
 
-      - name: Cache Bundler
-        uses: actions/cache@v3
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-bundler-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-bundler-
+      # 3) Instalar Fastlane
+      - name: Install Fastlane
+        run: gem install fastlane
 
-      - name: Install Gems
+      # 4) Criar o arquivo da API Key .p8 para App Store Connect
+      - name: Create API Key
+        run: echo "${{ secrets.APP_STORE_CONNECT_API_KEY }}" | base64 --decode > AuthKey_OLGA.p8
+
+      # 5) Verificar existência da chave
+      - name: Debug Key File
         run: |
-          gem install bundler
-          bundle install --path vendor/bundle
+          ls -la
+          if [ -f "./AuthKey_OLGA.p8" ]; then
+            echo "Arquivo AuthKey_OLGA.p8 encontrado com sucesso!"
+          else
+            echo "Erro: Arquivo AuthKey_OLGA.p8 não encontrado!"
+            exit 1
+          fi
 
-      # 3) Criar AuthKey_OLGA.p8
-      - name: Create .p8
-        run: echo "${{ secrets.APP_STORE_CONNECT_API_KEY }}" | base64 --decode > ios/AuthKey_OLGA.p8
-
-      # 4) Verificar se o arquivo foi criado
-      - name: Debug .p8
-        run: ls -l ios/AuthKey_OLGA.p8
-
-      # 5) Build & Deploy iOS
-      - name: Deploy iOS
+      # 6) Sincronizar Certificados e Profiles via Fastlane Match
+      - name: Sync Certificates
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        run: fastlane match appstore
+
+      # 7) Build & Deploy iOS
+      - name: Build & Deploy iOS
+        env:
           FASTLANE_USER: ${{ secrets.APPLE_ID }}
           FASTLANE_PASSWORD: ${{ secrets.APPLE_SPECIFIC_PASSWORD }}
-        run: |
-          cd ios
-          bundle exec fastlane ios deploy
+        run: fastlane ios deploy
 
-      # 6) Limpar chave
-      - name: Remove .p8
-        run: rm -f ios/AuthKey_OLGA.p8
+      # 8) Debug final do iOS
+      - name: Debug iOS
+        run: |
+          echo "Listando arquivos no final do job iOS:"
+          ls -R .
+
+      # 9) Notificação Discord (iOS)
+      - name: Notify Discord (iOS)
+        if: always()
+        run: |
+          if [ "${{ job.status }}" = "success" ]; then
+            curl -X POST -H "Content-Type: application/json" \
+              -d '{"content":"✅ Build & publicação do iOS *SUCESSO*! "}' \
+              ${{ secrets.DISCORD_WEBHOOK_URL }}
+          else
+            curl -X POST -H "Content-Type: application/json" \
+              -d '{"content":"❌Build & publicação do iOS *FALHOU*."}' \
+              ${{ secrets.DISCORD_WEBHOOK_URL }}
+          fi
