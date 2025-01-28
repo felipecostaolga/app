@@ -81,14 +81,17 @@ jobs:
     needs: publish-android
 
     steps:
+      # 1) Checkout
       - name: Checkout
         uses: actions/checkout@v3
 
+      # 2) Setup Ruby
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
           ruby-version: '3.0'
 
+      # 3) Cache Bundler
       - name: Cache Bundler
         uses: actions/cache@v3
         with:
@@ -97,13 +100,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-bundler-
 
+      # 4) Instalar Fastlane
       - name: Install Fastlane
         run: gem install fastlane
 
-      # Aqui criamos o arquivo direto na pasta ios/
+      # 5) Criar arquivo da API Key .p8 
+      # (antes de qualquer uso do fastlane)
       - name: Create API Key
         run: echo "${{ secrets.APP_STORE_CONNECT_API_KEY }}" | base64 --decode > ios/AuthKey_OLGA.p8
 
+      # 6) Check Key File
       - name: Check Key File
         run: |
           if [ ! -f "ios/AuthKey_OLGA.p8" ]; then
@@ -111,6 +117,7 @@ jobs:
             exit 1
           fi
 
+      # 7) Sincronizar Certificados e Profiles
       - name: Sync Certificates and Profiles
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
@@ -120,6 +127,7 @@ jobs:
           cd ios
           fastlane match appstore
 
+      # 8) Build & Deploy iOS
       - name: Build & Deploy iOS
         env:
           FASTLANE_USER: ${{ secrets.APPLE_ID }}
@@ -128,5 +136,7 @@ jobs:
           cd ios
           fastlane deploy
 
+      # 9) Remover a chave (limpeza)
       - name: Remove Key File
         run: rm -f ios/AuthKey_OLGA.p8
+
