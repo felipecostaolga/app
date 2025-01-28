@@ -1,8 +1,8 @@
 {
-  "url": "https://jappadaquitanda.sites.olga.tech",
-  "primaryColor": "#000000",
-  "secondaryColor": "#000000",
-  "OneSignalKey": "f30407a0-09d0-46ac-9287-a6a6cc75ca21",
+  "url": "https://olga.tech/",
+  "primaryColor": "#fbba00",
+  "secondaryColor": "#fbba00",
+  "OneSignalKey": "178a2912-1e16-4b72-9e22-3a8d5c4aad4b",
   "olgaApi": "https://api.olga.tech/",
   "olgaApiFood": "https://api.food.olga.tech"
 }

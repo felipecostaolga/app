@@ -78,14 +78,14 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.jappadaquitanda"
+    namespace "br.com.delivery.thefamous"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.jappadaquitanda"
+        applicationId "br.com.delivery.thefamous"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 101
-        versionName "101.1"
+        versionCode 171
+        versionName "171.1"
     }
       buildFeatures {
         buildConfig = true
@@ -94,9 +94,9 @@ android {
     signingConfigs {
     
          release {
-            storeFile file('jappadaquitanda-olga.keystore')
+            storeFile file('thefamous-olga.keystore')
             storePassword '12345678'
-            keyAlias 'jappadaquitanda-olga'
+            keyAlias 'thefamous-olga'
             keyPassword '12345678'
         }
     }
