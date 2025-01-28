@@ -110,7 +110,8 @@ jobs:
 
       # 4) Criar o arquivo da API Key
       - name: Create API Key
-        run: echo "${{ secrets.APP_STORE_CONNECT_API_KEY }}" | base64 --decode > ios/AuthKey.p8
+        run: echo "${{ secrets.APP_STORE_CONNECT_API_KEY }}" | base64 --decode > AuthKey_OLGA.p8
+
 
       # 5) Sincronizar Certificados e Profiles para o iOS
       - name: Sync Certificates and Profiles
