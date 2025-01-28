@@ -1,4 +1,4 @@
-default_platform(:ios)
+# default_platform(:ios)
 
 # Configuração para Android
 platform :android do
