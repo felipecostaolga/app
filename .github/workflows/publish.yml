@@ -74,7 +74,6 @@ jobs:
       # 8) Deploy Android (tenta -> se falhar, create_app -> tenta de novo)
       - name: Deploy Android
         run: |
-          cd android
           bundle exec fastlane android deploy || (bundle exec fastlane android create_app && bundle exec fastlane android deploy)
 
       # 9) Remove keystore no final (limpeza)
