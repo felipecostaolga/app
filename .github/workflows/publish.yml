@@ -1,4 +1,4 @@
-name: Build & Publish Android and iOS (S3 Keystore)
+name: Build & Publish
 
 on:
   push:
@@ -10,29 +10,11 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      # 1) Checkout do repositório
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install AWS CLI
-        run: brew install awscli
-
-      - name: Download Keystore from S3
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-east-2  
-        run: |
-          aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
-          aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
-          aws configure set default.region "$AWS_DEFAULT_REGION"
-          aws s3 cp "s3://app-generator-robson/keystores/thefamous-olga.keystore" "android/app/thefamous-olga.keystore"
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
+      # 2) Setup Node + Cache (opcional, se seu projeto RN precisar rodar npm ci)
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -47,11 +29,9 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install Dependencies
-        run: npm install --force
+        run: npm ci
 
-      - name: Create Google JSON
-        run: echo "${{ secrets.ANDROID_JSON_KEY }}" | base64 --decode > android/google-play-key.json
-
+      # 3) Instalar Ruby + Cache
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
@@ -65,33 +45,57 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-bundler-
 
-      - name: Install Fastlane
-        run: gem install fastlane
+      # 4) Instalar Gems (Fastlane e afins)
+      - name: Install Gems
+        run: |
+          gem install bundler
+          bundle install --path vendor/bundle
 
+      # 5) Instalar AWS CLI (se precisar baixar keystore do S3)
+      - name: Install AWS CLI
+        run: brew install awscli
+
+      # 6) Baixar keystore do S3
+      - name: Download Keystore
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: us-east-2
+        run: |
+          aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
+          aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
+          aws configure set default.region "$AWS_DEFAULT_REGION"
+          aws s3 cp "s3://app-generator-robson/keystores/thefamous-olga.keystore" "android/app/thefamous-olga.keystore"
+
+      # 7) Criar JSON da Play Store
+      - name: Create Google Play Key
+        run: echo "${{ secrets.ANDROID_JSON_KEY }}" | base64 --decode > android/google-play-key.json
+
+      # 8) Deploy Android (tenta -> se falhar, create_app -> tenta de novo)
       - name: Deploy Android
         run: |
           cd android
-          fastlane deploy || (fastlane create_app && fastlane deploy)
+          bundle exec fastlane android deploy || (bundle exec fastlane android create_app && bundle exec fastlane android deploy)
 
+      # 9) Remove keystore no final (limpeza)
       - name: Remove Keystore
         run: rm -f android/app/thefamous-olga.keystore
 
   publish-ios:
     runs-on: macos-latest
-    needs: publish-android
+    needs: publish-android  # só roda depois do Android
 
     steps:
       # 1) Checkout
       - name: Checkout
         uses: actions/checkout@v3
 
-      # 2) Setup Ruby
+      # 2) Setup Ruby + Cache Bundler
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
           ruby-version: '3.0'
 
-      # 3) Cache Bundler
       - name: Cache Bundler
         uses: actions/cache@v3
         with:
@@ -100,43 +104,29 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-bundler-
 
-      # 4) Instalar Fastlane
-      - name: Install Fastlane
-        run: gem install fastlane
+      - name: Install Gems
+        run: |
+          gem install bundler
+          bundle install --path vendor/bundle
 
-      # 5) Criar arquivo da API Key .p8 
-      # (antes de qualquer uso do fastlane)
-      - name: Create API Key
+      # 3) Criar AuthKey_OLGA.p8
+      - name: Create .p8
         run: echo "${{ secrets.APP_STORE_CONNECT_API_KEY }}" | base64 --decode > ios/AuthKey_OLGA.p8
 
-      # 6) Check Key File
-      - name: Check Key File
-        run: |
-          if [ ! -f "ios/AuthKey_OLGA.p8" ]; then
-            echo "Erro: AuthKey_OLGA.p8 não encontrado!"
-            exit 1
-          fi
+      # 4) Verificar se o arquivo foi criado
+      - name: Debug .p8
+        run: ls -l ios/AuthKey_OLGA.p8
 
-      # 7) Sincronizar Certificados e Profiles
-      - name: Sync Certificates and Profiles
+      # 5) Build & Deploy iOS
+      - name: Deploy iOS
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           FASTLANE_USER: ${{ secrets.APPLE_ID }}
           FASTLANE_PASSWORD: ${{ secrets.APPLE_SPECIFIC_PASSWORD }}
         run: |
           cd ios
-          fastlane match appstore
+          bundle exec fastlane ios deploy
 
-      # 8) Build & Deploy iOS
-      - name: Build & Deploy iOS
-        env:
-          FASTLANE_USER: ${{ secrets.APPLE_ID }}
-          FASTLANE_PASSWORD: ${{ secrets.APPLE_SPECIFIC_PASSWORD }}
-        run: |
-          cd ios
-          fastlane deploy
-
-      # 9) Remover a chave (limpeza)
-      - name: Remove Key File
+      # 6) Limpar chave
+      - name: Remove .p8
         run: rm -f ios/AuthKey_OLGA.p8
-

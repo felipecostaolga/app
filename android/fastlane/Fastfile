@@ -1,4 +1,4 @@
-# default_platform(:ios)
+default_platform(:ios)
 
 # Configuração para Android
 platform :android do
@@ -30,15 +30,12 @@ platform :android do
       skip_upload_images: true, 
       skip_upload_screenshots: true, 
       skip_upload_changelogs: true, 
-      skip_upload_metadata: true, 
+      skip_upload_metadata: true
     )
   end
 end
 
-
-
-
-#configuração ios:
+# Configuração iOS
 platform :ios do
   desc "Build e deploy para o App Store Connect"
   lane :deploy do
@@ -49,20 +46,20 @@ platform :ios do
       key_filepath: "./AuthKey_OLGA.p8"
     )
 
-    # Sincronizar certificados e profiles para o Bundle ID específico
+    # Sincroniza certificados e profiles
     match(
       type: "appstore",
       app_identifier: "br.com.delivery.thefamous", 
       api_key: api_key
     )
 
-    # Build do app com o scheme correspondente
+    # Build do app
     build_app(
       scheme: "DVRO",
       export_method: "app-store"
     )
 
-    # Upload para o App Store Connect
+    # Upload para App Store Connect
     upload_to_app_store(
       api_key: api_key,
       skip_metadata: true,
