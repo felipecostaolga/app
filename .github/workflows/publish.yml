@@ -26,12 +26,10 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-2  
         run: |
-          # Configurar a AWS CLI usando as variáveis de ambiente acima
           aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
           aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
           aws configure set default.region "$AWS_DEFAULT_REGION"
 
-          # Baixar o arquivo do S3
           aws s3 cp "s3://app-generator-robson/keystores/thefamous-olga.keystore" "android/app/thefamous-olga.keystore"
 
           echo "Listando arquivos em android/app/ para conferir:"
@@ -74,8 +72,6 @@ jobs:
 
       # 9) Instalar Fastlane
       - name: Install Fastlane
-        env:
-          ANDROID_JSON_KEY: ${{ secrets.ANDROID_JSON_KEY }}
         run: gem install fastlane
 
       # 10) Executar Build & Deploy do Android via Fastlane
@@ -112,8 +108,19 @@ jobs:
       - name: Create API Key
         run: echo "${{ secrets.APP_STORE_CONNECT_API_KEY }}" | base64 --decode > AuthKey_OLGA.p8
 
+      # 5) Debug: Verificar a existência do arquivo .p8
+      - name: Debug Key File
+        run: |
+          echo "Verificando a existência do arquivo AuthKey_OLGA.p8"
+          ls -la
+          if [ -f "./AuthKey_OLGA.p8" ]; then
+            echo "Arquivo AuthKey_OLGA.p8 encontrado com sucesso!"
+          else
+            echo "Erro: Arquivo AuthKey_OLGA.p8 não encontrado!"
+            exit 1
+          fi
 
-      # 5) Sincronizar Certificados e Profiles para o iOS
+      # 6) Sincronizar Certificados e Profiles para o iOS
       - name: Sync Certificates and Profiles
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
@@ -121,29 +128,15 @@ jobs:
           FASTLANE_PASSWORD: ${{ secrets.APPLE_SPECIFIC_PASSWORD }}
         run: fastlane match appstore
 
-      # 6) Fazer o Build e Deploy do iOS para o App Store Connect
+      # 7) Fazer o Build e Deploy do iOS para o App Store Connect
       - name: Build & Deploy iOS
         env:
           FASTLANE_USER: ${{ secrets.APPLE_ID }}
           FASTLANE_PASSWORD: ${{ secrets.APPLE_SPECIFIC_PASSWORD }}
         run: fastlane ios deploy
 
-      # 7) Debug Final
-      - name: Debug
+      # Debug Final
+      - name: Debug Final
         run: |
-          echo "Listando tudo em ./ios:"
-          ls -R ios
-
-    # Notificar no Discord (apenas se ambos forem bem-sucedidos)
-      - name: Notify Discord
-        if: always()
-        run: |
-          if [ "${{ job.status }}" = "success" ]; then
-            curl -X POST -H "Content-Type: application/json" \
-            -d '{"content":"✅ Build & publicação de Android e iOS *SUCESSO*! "}' \
-            ${{ secrets.DISCORD_WEBHOOK_URL }}
-          else
-            curl -X POST -H "Content-Type: application/json" \
-            -d '{"content":"❌ Build ou publicação de Android e iOS *FALHOU*! "}' \
-            ${{ secrets.DISCORD_WEBHOOK_URL }}
-          fi
+          echo "Verificando arquivos finais:"
+          ls -R
