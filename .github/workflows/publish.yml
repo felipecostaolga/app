@@ -1,17 +1,15 @@
-name: Build & Publish Android (S3 Keystore)
+name: Build & Publish Android and iOS (S3 Keystore)
 
 on:
   push:
     branches-ignore: ["master"]  
-  workflow_dispatch:           
+  workflow_dispatch:
 
 jobs:
   publish-android:
-    runs-on: macos-latest      
+    runs-on: macos-latest
 
     steps:
-
-
       # 1) Checkout do repositório
       - name: Checkout
         uses: actions/checkout@v3
@@ -63,66 +61,88 @@ jobs:
       - name: Install Dependencies
         run: npm install --force
 
-     # 8) Criar o arquivo google-play-key.json (para Supply)
+      # 8) Criar o arquivo google-play-key.json (para Supply)
       - name: Create Google JSON
         run: echo "${{ secrets.ANDROID_JSON_KEY }}" | base64 --decode > android/google-play-key.json
 
-        #debug json
+      # Debug JSON
       - name: Debug JSON
         run: |
           echo "==== Content of google-play-key.json ===="
           cat android/google-play-key.json
           echo "========================================="
+
       # 9) Instalar Fastlane
       - name: Install Fastlane
         env:
           ANDROID_JSON_KEY: ${{ secrets.ANDROID_JSON_KEY }}
-
         run: gem install fastlane
 
       # 10) Executar Build & Deploy do Android via Fastlane
       - name: Deploy Android
         run: |
           cd android
-          # Tenta lane :deploy
-          # Se falhar (app não existe), faz :create_app e depois :deploy
           fastlane deploy || (fastlane create_app && fastlane deploy)
 
-      # 11) (Opcional) Remover o keystore do runner no final
+      # 11) Remover o keystore do runner no final
       - name: Remove Keystore
-        run: rm -f android/app/takeajuice-olga.keystore
+        run: rm -f android/app/thefamous-olga.keystore
 
-      # 13) Torna o repositório privado novamente
-      - name: Make Repo Private
-        run: |
-           curl -X PATCH \
-             -H "Authorization: token ${{ secrets.GH_TOKEN_REPO }}" \
-             -H "Accept: application/vnd.github+json" \
-             https://api.github.com/repos/felipecostaolga/app \
-             -d '{"private": true}'
-    # Debug: Listar arquivos no final
+  publish-ios:
+    runs-on: macos-latest
+    needs: publish-android # Executa o iOS somente após o Android
+
+    steps:
+      # 1) Checkout do repositório
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # 2) Configurar Ruby
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+
+      # 3) Instalar Fastlane
+      - name: Install Fastlane
+        run: gem install fastlane
+
+      # 4) Criar o arquivo da API Key
+      - name: Create API Key
+        run: echo "${{ secrets.APP_STORE_CONNECT_API_KEY }}" | base64 --decode > ios/AuthKey.p8
+
+      # 5) Sincronizar Certificados e Profiles para o iOS
+      - name: Sync Certificates and Profiles
+        env:
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          FASTLANE_USER: ${{ secrets.APPLE_ID }}
+          FASTLANE_PASSWORD: ${{ secrets.APPLE_SPECIFIC_PASSWORD }}
+        run: fastlane match appstore
+
+      # 6) Fazer o Build e Deploy do iOS para o App Store Connect
+      - name: Build & Deploy iOS
+        env:
+          FASTLANE_USER: ${{ secrets.APPLE_ID }}
+          FASTLANE_PASSWORD: ${{ secrets.APPLE_SPECIFIC_PASSWORD }}
+        run: fastlane ios deploy
+
+      # 7) Debug Final
       - name: Debug
         run: |
-          echo "Listando tudo em ./:"
-          ls -R .
-          echo "Listando android:"
-          ls -la android
-          echo "Listando android/fastlane:"
-          ls -la android/fastlane
+          echo "Listando tudo em ./ios:"
+          ls -R ios
 
-    #Notifica no discord
+    # Notificar no Discord (apenas se ambos forem bem-sucedidos)
       - name: Notify Discord
         if: always()
         run: |
           if [ "${{ job.status }}" = "success" ]; then
             curl -X POST -H "Content-Type: application/json" \
-            -d '{"content":"✅ Build & publicação do  Android *SUCESSO*! "}' \
+            -d '{"content":"✅ Build & publicação de Android e iOS *SUCESSO*! "}' \
             ${{ secrets.DISCORD_WEBHOOK_URL }}
           else
             curl -X POST -H "Content-Type: application/json" \
-            -d '{"content":"❌Build & publicação do  Android  *FALHOU*."}' \
+            -d '{"content":"❌ Build ou publicação de Android e iOS *FALHOU*! "}' \
             ${{ secrets.DISCORD_WEBHOOK_URL }}
           fi
-     
-
-      
