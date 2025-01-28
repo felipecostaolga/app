@@ -1,80 +1,88 @@
-name: Build & Publish
+name: Build & Publish Android (S3 Keystore)
 
 on:
   push:
-    branches-ignore: ["master"]
-  workflow_dispatch:
+    branches-ignore: ["master"]  
+  workflow_dispatch:           
 
 jobs:
   publish-android:
-    runs-on: macos-latest
+    runs-on: macos-latest      
 
     steps:
+
+
       # 1) Checkout do repositório
       - name: Checkout
         uses: actions/checkout@v3
 
-      # 2) Setup Node + Cache (opcional, se seu projeto RN precisar rodar npm ci)
+      # 2) Instalar o AWS CLI (no macOS, usando brew)
+      - name: Install AWS CLI
+        run: |
+          brew install awscli
+
+      # 3) Configurar e Baixar o Keystore do S3
+      - name: Download Keystore from S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: us-east-2  
+        run: |
+          # Configurar a AWS CLI usando as variáveis de ambiente acima
+          aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
+          aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
+          aws configure set default.region "$AWS_DEFAULT_REGION"
+
+          # Baixar o arquivo do S3
+          aws s3 cp "s3://app-generator-robson/keystores/pizzaforfun-olga.keystore" "android/app/pizzaforfun-olga.keystore"
+
+          echo "Listando arquivos em android/app/ para conferir:"
+          ls -la android/app/
+
+      # 4) Configurar JDK (17)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # 5) Configurar Node (Ex.: para React Native)
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Cache Node Modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install Dependencies
-        run: npm install --force
-
-      # 3) Instalar Ruby + Cache
+      # 6) Configurar Ruby (para Fastlane)
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
           ruby-version: '3.0'
+          bundler-cache: true
 
-      - name: Cache Bundler
-        uses: actions/cache@v3
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-bundler-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-bundler-
+      # 7) Instalar dependências (Node)
+      - name: Install Dependencies
+        run: npm install --force
 
-      # 4) Instalar Gems (Fastlane e afins)
-      - name: Install Gems
-        run: |
-          gem install bundler
-          bundle install --path vendor/bundle
-
-      # 5) Instalar AWS CLI (se precisar baixar keystore do S3)
-      - name: Install AWS CLI
-        run: brew install awscli
-
-      # 6) Baixar keystore do S3
-      - name: Download Keystore
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-east-2
-        run: |
-          aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
-          aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
-          aws configure set default.region "$AWS_DEFAULT_REGION"
-          aws s3 cp "s3://app-generator-robson/keystores/thefamous-olga.keystore" "android/app/thefamous-olga.keystore"
-
-      # 7) Criar JSON da Play Store
-      - name: Create Google Play Key
+     # 8) Criar o arquivo google-play-key.json (para Supply)
+      - name: Create Google JSON
         run: echo "${{ secrets.ANDROID_JSON_KEY }}" | base64 --decode > android/google-play-key.json
 
+        #debug json
+      - name: Debug JSON
+        run: |
+          echo "==== Content of google-play-key.json ===="
+          cat android/google-play-key.json
+          echo "========================================="
+      # 9) Instalar Fastlane
+      - name: Install Fastlane
+        env:
+          ANDROID_JSON_KEY: ${{ secrets.ANDROID_JSON_KEY }}
+
+        run: gem install fastlane
       # 8) Deploy Android (tenta -> se falhar, create_app -> tenta de novo)
       - name: Deploy Android
         run: |
-          cd android/fastlane
+          cd android
           bundle exec fastlane android deploy || (bundle exec fastlane android create_app && bundle exec fastlane android deploy)
 
       # 9) Remove keystore no final (limpeza)
