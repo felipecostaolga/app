@@ -31,6 +31,7 @@ platform :ios do
 
     match(type: "appstore",
           app_identifier: "br.com.delivery.thefamous",
+          git_url: "https://#{ENV['GITHUB_PAT']}@github.com/felipecostaolga/app.git",
           api_key: api_key)
 
     build_app(scheme: "DVRO", export_method: "app-store")

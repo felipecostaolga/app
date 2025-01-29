@@ -120,6 +120,7 @@ jobs:
       - name: Sync Certificates
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          GITHUB_PAT: ${{ secrets.CERT_GIT }}  
         run: fastlane match appstore
 
       - name: Build & Deploy iOS
