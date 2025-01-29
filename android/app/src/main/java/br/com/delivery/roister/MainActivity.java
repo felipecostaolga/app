@@ -1,4 +1,4 @@
-package br.com.delivery.thefamous;
+package br.com.delivery.roister;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
