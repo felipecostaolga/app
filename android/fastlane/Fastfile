@@ -1,87 +1,42 @@
-# Fastfile na raiz (ou em fastlane/Fastfile na raiz)
+# android/fastlane/Fastfile
 
-# Opcional: define plataforma padrão como iOS.
-# Isso significa que, se você NÃO especificar android/ios no comando,
-# o Fastlane tentará usar iOS por padrão.
 default_platform(:ios)
 
-desc "Faz deploy do Android e depois do iOS (uso local se quiser as duas seguidas)"
+desc "Deploy de tudo (Android + iOS) - para rodar localmente"
 lane :deploy_all do
-  UI.message("=== Iniciando Deploy do Android... ===")
+  UI.message("=== Deploy Android ===")
   sh("fastlane android deploy_android")
 
-  UI.message("=== Iniciando Deploy do iOS... ===")
+  UI.message("=== Deploy iOS ===")
   sh("fastlane ios deploy_ios")
 end
 
-##############################
-# Configuração para Android #
-##############################
 platform :android do
-  desc "Deploy (gera .aab e envia para a Play Store)"
+  desc "Build e envio para Google Play"
   lane :deploy_android do
-    gradle(
-      task: "bundle",
-      build_type: "Release"
-    )
-
-    supply(
-      aab: "app/build/outputs/bundle/release/app-release.aab",
-      track: "production"
-    )
-  end
-
-  desc "Cria o app do zero na Play Store (opcional para primeira publicação)"
-  lane :create_app do
-    gradle(
-      task: "bundle",
-      build_type: "Release"
-    )
-
-    supply(
-      aab: "app/build/outputs/bundle/release/app-release.aab",
-      track: "production",
-      json_key: "./google-play-key.json",  # Ajuste conforme seu caminho
-      package_name: "br.com.delivery.thefamous",
-      skip_upload_images: true,
-      skip_upload_screenshots: true,
-      skip_upload_changelogs: true,
-      skip_upload_metadata: true
-    )
+    gradle(task: "bundle", build_type: "Release")
+    supply(aab: "app/build/outputs/bundle/release/app-release.aab", track: "production")
   end
 end
 
-##########################
-# Configuração para iOS  #
-##########################
 platform :ios do
-  desc "Build e deploy para o App Store Connect"
+  desc "Build e envio para App Store Connect"
   lane :deploy_ios do
-    # Configuração de autenticação via chave .p8
+    # Configurações de iOS
     api_key = app_store_connect_api_key(
       key_id: "BRY3V3XY2H",
       issuer_id: "76d6f819-587c-4293-8e62-fe0c9b51c1f1",
-      key_filepath: "./AuthKey_OLGA.p8"  # Ajuste o caminho se criar em outro lugar
+      key_filepath: "./AuthKey_OLGA.p8"
     )
 
-    # Sincroniza certificados e perfis de provisão
-    match(
-      type: "appstore",
-      app_identifier: "br.com.delivery.thefamous",
-      api_key: api_key
-    )
+    match(type: "appstore",
+          app_identifier: "br.com.delivery.thefamous",
+          api_key: api_key)
 
-    # Build do aplicativo
-    build_app(
-      scheme: "DVRO",
-      export_method: "app-store"
-    )
+    build_app(scheme: "DVRO", export_method: "app-store")
 
-    # Upload para App Store Connect
-    upload_to_app_store(
-      api_key: api_key,
-      skip_metadata: true,
-      skip_screenshots: true
-    )
+    upload_to_app_store(api_key: api_key,
+                        skip_metadata: true,
+                        skip_screenshots: true)
   end
 end

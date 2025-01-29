@@ -72,7 +72,9 @@ jobs:
 
       # 11) Deploy Android (chamando a plataforma explicitamente)
       - name: Deploy Android
-        run: fastlane android deploy_android
+        run: |
+          cd android
+          fastlane android deploy_android
 
       # 12) Remover Keystore (opcional)
       - name: Remove Keystore
@@ -124,8 +126,9 @@ jobs:
         env:
           FASTLANE_USER: ${{ secrets.APPLE_ID }}
           FASTLANE_PASSWORD: ${{ secrets.APPLE_SPECIFIC_PASSWORD }}
-        run: fastlane ios deploy_ios
-
+        run: |
+          cd android
+          fastlane ios deploy_ios
       - name: Notify Discord (iOS)
         if: always()
         run: |
