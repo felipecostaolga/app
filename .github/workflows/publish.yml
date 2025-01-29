@@ -62,8 +62,7 @@ jobs:
         run: bundle install  # <--- Adicione este passo
 
       - name: Deploy Android
-        run: |
-          bundle exec fastlane android deploy_android
+        run: fastlane android deploy_android
 
       - name: Remove Keystore
         run: rm -f android/app/pizzaforfun-olga.keystore
