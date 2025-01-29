@@ -10,15 +10,15 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      # 1) Checkout do repositório
+      # 1) Checkout
       - name: Checkout
         uses: actions/checkout@v3
 
-      # 2) Instalar o AWS CLI (para baixar keystore)
+      # 2) Instalar AWS CLI (para baixar o keystore)
       - name: Install AWS CLI
         run: brew install awscli
 
-      # 3) Configurar e Baixar o Keystore do S3
+      # 3) Baixar Keystore do S3
       - name: Download Keystore
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -60,46 +60,27 @@ jobs:
       - name: Create Google JSON
         run: echo "${{ secrets.ANDROID_JSON_KEY }}" | base64 --decode > android/google-play-key.json
 
-      # 9) Debug JSON
+      # 9) Debug JSON (opcional)
       - name: Debug JSON
         run: |
           echo "==== Conteúdo de google-play-key.json ===="
           cat android/google-play-key.json
           echo "=========================================="
 
-      # 10) Instalar Fastlane
+      # 10) Instalar Fastlane (global ou usando bundler)
       - name: Install Fastlane
         run: gem install fastlane
 
-      # 11) Executar Build & Deploy do Android
+      # 11) Deploy Android
       - name: Deploy Android
         run: |
-          cd android
-          fastlane deploy_all
-
+          bundle exec fastlane android deploy_android
 
       # 12) Remover Keystore (opcional)
       - name: Remove Keystore
         run: rm -f android/app/pizzaforfun-olga.keystore
 
-      # 13) Torna o repositório privado (opcional)
-      - name: Make Repo Private
-        run: |
-          curl -X PATCH \
-            -H "Authorization: token ${{ secrets.GH_TOKEN_REPO }}" \
-            -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/felipecostaolga/app \
-            -d '{"private": true}'
-
-      # 14) Debug final do Android
-      - name: Debug Android
-        run: |
-          echo "Listando arquivos no final do job Android:"
-          ls -R .
-          echo "Listando android/fastlane:"
-          ls -la android/fastlane/
-
-      # 15) Notificação Discord (Android)
+      # 13) Notificar Discord (Android)
       - name: Notify Discord (Android)
         if: always()
         run: |
@@ -113,19 +94,19 @@ jobs:
               ${{ secrets.DISCORD_WEBHOOK_URL }}
           fi
 
-  ## ------------------------------
-  ## Job para iOS (roda após Android)
-  ## ------------------------------
+  # --------------------------------------------------
+  # Job para iOS (roda após o Android)
+  # --------------------------------------------------
   publish-ios:
     runs-on: macos-latest
-    needs: publish-android  # Só inicia depois que o publish-android concluir
+    needs: publish-android
 
     steps:
       # 1) Checkout
       - name: Checkout
         uses: actions/checkout@v3
 
-      # 2) Setup Ruby
+      # 2) Setup Ruby (para Fastlane)
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
@@ -136,41 +117,26 @@ jobs:
       - name: Install Fastlane
         run: gem install fastlane
 
-      # 4) Criar o arquivo da API Key .p8 para App Store Connect
+      # 4) Criar arquivo .p8 para App Store Connect
       - name: Create API Key
         run: echo "${{ secrets.APP_STORE_CONNECT_API_KEY }}" | base64 --decode > AuthKey_OLGA.p8
 
-      # 5) Verificar existência da chave
-      - name: Debug Key File
-        run: |
-          ls -la
-          if [ -f "./AuthKey_OLGA.p8" ]; then
-            echo "Arquivo AuthKey_OLGA.p8 encontrado com sucesso!"
-          else
-            echo "Erro: Arquivo AuthKey_OLGA.p8 não encontrado!"
-            exit 1
-          fi
-
-      # 6) Sincronizar Certificados e Profiles via Fastlane Match
+      # 5) Sincronizar Certificados/Profiles (Match)
       - name: Sync Certificates
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-        run: fastlane match appstore
+        run: bundle exec fastlane match appstore
 
-      # 7) Build & Deploy iOS
+      # 6) Build & Deploy iOS
       - name: Build & Deploy iOS
         env:
           FASTLANE_USER: ${{ secrets.APPLE_ID }}
           FASTLANE_PASSWORD: ${{ secrets.APPLE_SPECIFIC_PASSWORD }}
-        run: fastlane ios deploy
-
-      # 8) Debug final do iOS
-      - name: Debug iOS
         run: |
-          echo "Listando arquivos no final do job iOS:"
-          ls -R .
+          # Chama a lane :deploy_ios dentro de platform :ios
+          bundle exec fastlane ios deploy_ios
 
-      # 9) Notificação Discord (iOS)
+      # 7) Notificar Discord (iOS)
       - name: Notify Discord (iOS)
         if: always()
         run: |

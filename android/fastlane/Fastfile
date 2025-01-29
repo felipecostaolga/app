@@ -1,20 +1,26 @@
-# default_platform(:ios)
+# Fastfile na raiz do projeto
 
+default_platform(:ios)
 
-desc "Faz deploy do Android e depois do iOS"
-  lane :deploy_all do
-    UI.message("=== Iniciando Deploy do Android... ===")
-    sh("fastlane android deploy")
-  
-    UI.message("=== Iniciando Deploy do iOS... ===")
-    sh("fastlane ios deploy")
-  end
-  
+# ------------------------------------
+# Lane opcional para rodar as duas plataformas em sequência LOCALMENTE
+# (não use essa lane no CI para evitar conflitos)
+# ------------------------------------
+desc "Faz deploy do Android e depois do iOS (uso local, não recomendado no CI)"
+lane :deploy_all do
+  UI.message("=== Iniciando Deploy do Android... ===")
+  sh("bundle exec fastlane android deploy_android")
 
+  UI.message("=== Iniciando Deploy do iOS... ===")
+  sh("bundle exec fastlane ios deploy_ios")
+end
+
+# ------------------------------------
 # Configuração para Android
+# ------------------------------------
 platform :android do
   desc "Deploy (build .aab e envia para a Play Store)"
-  lane :deploy do
+  lane :deploy_android do
     gradle(
       task: "bundle",
       build_type: "Release"
@@ -38,18 +44,20 @@ platform :android do
       track: "production",
       json_key: "./google-play-key.json",
       package_name: "br.com.delivery.thefamous",
-      skip_upload_images: true, 
-      skip_upload_screenshots: true, 
-      skip_upload_changelogs: true, 
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+      skip_upload_changelogs: true,
       skip_upload_metadata: true
     )
   end
 end
 
+# ------------------------------------
 # Configuração iOS
+# ------------------------------------
 platform :ios do
   desc "Build e deploy para o App Store Connect"
-  lane :deploy do
+  lane :deploy_ios do
     # Configuração de autenticação
     api_key = app_store_connect_api_key(
       key_id: "BRY3V3XY2H",
@@ -60,7 +68,7 @@ platform :ios do
     # Sincroniza certificados e profiles
     match(
       type: "appstore",
-      app_identifier: "br.com.delivery.thefamous", 
+      app_identifier: "br.com.delivery.thefamous",
       api_key: api_key
     )
 
