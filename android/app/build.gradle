@@ -78,10 +78,10 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.roister"
+    namespace "br.com.delivery.estacaocampineira"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.roister"
+        applicationId "br.com.delivery.estacaocampineira"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 100
@@ -94,9 +94,9 @@ android {
     signingConfigs {
     
          release {
-            storeFile file('roister-olga.keystore')
+            storeFile file('estacaocampineira-olga.keystore')
             storePassword '12345678'
-            keyAlias 'roister-olga'
+            keyAlias 'estacaocampineira-olga'
             keyPassword '12345678'
         }
     }

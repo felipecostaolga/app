@@ -1,4 +1,4 @@
-package br.com.delivery.roister;
+package br.com.delivery.estacaocampineira;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
