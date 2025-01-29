@@ -29,7 +29,7 @@ jobs:
           aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
           aws configure set default.region "$AWS_DEFAULT_REGION"
 
-          aws s3 cp "s3://app-generator-robson/keystores/pizzaforfun-olga.keystore" "android/app/pizzaforfun-olga.keystore"
+          aws s3 cp "s3://app-generator-robson/keystores/thefamous-olga.keystore" "android/app/thefamous-olga.keystore"
           ls -la android/app/
 
       # 4) Configurar JDK 17
