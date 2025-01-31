@@ -111,14 +111,7 @@ jobs:
           ruby-version: '3.0'
           bundler-cache: true
           
-      - name: Verificar Presença do react_native_pods.rb
-        run: |
-          if [ -f "../../node_modules/react-native/scripts/react_native_pods.rb" ]; then
-            echo "react_native_pods.rb encontrado."
-          else
-            echo "react_native_pods.rb NÃO encontrado."
-            exit 1
-          fi 
+      
       - name: Install CocoaPods
         run: |
           sudo gem install cocoapods
