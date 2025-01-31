@@ -99,7 +99,7 @@ jobs:
   # --------------------------------------------------
   publish-ios:
     runs-on: macos-latest
-    needs: publish-android
+    # needs: publish-android
 
     steps:
       - name: Checkout
