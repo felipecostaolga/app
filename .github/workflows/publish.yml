@@ -126,7 +126,10 @@ jobs:
           npm install --save-dev patch-package postinstall-postinstall --force
 
       - name: Install pod
-        run: pod init && pod install
+       
+        run: |
+         cd  /Users/runner/work/app/app/ios
+         pod init && pod install
  
       
 
