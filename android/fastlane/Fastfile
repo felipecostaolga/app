@@ -26,7 +26,7 @@ platform :ios do
   desc "Build e envio para App Store Connect"
   lane :deploy_ios do
     # Definir o diretório base para iOS
-    ios_dir = File.expand_path("../../../ios", __FILE__)
+    ios_dir = File.expand_path("../ios", __FILE__)
 
     # Configurações da API Key do App Store Connect
     api_key = app_store_connect_api_key(
