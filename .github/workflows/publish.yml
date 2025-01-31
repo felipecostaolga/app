@@ -124,14 +124,7 @@ jobs:
       - name: install Dependencies
         run: |
           npm install --save-dev patch-package postinstall-postinstall --force
-      - name: Navigate to iOS directory and install pods
-        run: |
-          cd /Users/runner/work/app/app/ios
-          if [ ! -f Podfile ]; then
-            pod init
-          fi
-          pod install
-        shell: /bin/bash -e {0}     
+      
 
       - name: Install pod
        
