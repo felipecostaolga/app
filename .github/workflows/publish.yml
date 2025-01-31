@@ -110,7 +110,7 @@ jobs:
         with:
           ruby-version: '3.0'
           bundler-cache: true
-          
+
       - name: Clear Gem Cache
         run: |
           gem sources --remove https://rubygems.org/
@@ -126,7 +126,10 @@ jobs:
           sudo gem install cocoapods
           cd ios
        
-          pod install --repo-update    
+          pod cache clean --all
+          rm -rf Podfile.lock
+          pod repo update
+          pod install
 
       - name: Install Fastlane
         run: gem install fastlane
