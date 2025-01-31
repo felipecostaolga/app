@@ -121,9 +121,9 @@ jobs:
         # 7) Instalar Dependências do Node
       - name: Install Dependencies
         run: npm install --force
-      - name: Install CocoaPods  
-        run: npm install --save-dev patch-package postinstall-postinstall
-
+      - name: install Dependencies
+        run: |
+          npm install --save-dev patch-package postinstall-postinstall
       - name: Install CocoaPods
         run: |
           sudo gem install cocoapods
