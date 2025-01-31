@@ -116,7 +116,7 @@ jobs:
         run: |
           sudo gem install cocoapods
           cd ios
-          pod deintegrate
+       
           pod install --repo-update    
 
       - name: Install Fastlane
