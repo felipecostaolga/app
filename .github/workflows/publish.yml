@@ -111,7 +111,9 @@ jobs:
           ruby-version: '3.0'
           bundler-cache: true
           
-      
+        # 7) Instalar Dependências do Node
+      - name: Install Dependencies
+        run: npm install --force
       - name: Install CocoaPods
         run: |
           sudo gem install cocoapods
