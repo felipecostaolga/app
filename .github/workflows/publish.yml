@@ -124,10 +124,15 @@ jobs:
       - name: install Dependencies
         run: |
           npm install --save-dev patch-package postinstall-postinstall --force
+
+      - name: Install pod
+        run: pod init && pod install
+ 
       
 
       - name: Install Fastlane
         run: gem install fastlane
+        
 
       - name: Create API Key
         run: echo "${{ secrets.APP_STORE_CONNECT_API_KEY }}" | base64 --decode > android/AuthKey_OLGA.p8
