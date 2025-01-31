@@ -117,6 +117,12 @@ jobs:
       - name: Create API Key
         run: echo "${{ secrets.APP_STORE_CONNECT_API_KEY }}" | base64 --decode > android/AuthKey_OLGA.p8
 
+      - name: Debug API Key
+        run: |
+          echo "==== Conteúdo do AuthKey_OLGA.p8 ===="
+          cat android/AuthKey_OLGA.p8
+          echo "======================================"
+
       - name: Build & Deploy iOS
         env:
           FASTLANE_USER: ${{ secrets.APPLE_ID }}

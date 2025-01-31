@@ -84,8 +84,8 @@ android {
         applicationId "br.com.delivery.thefamous"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 181
-        versionName "181.1"
+        versionCode 182
+        versionName "182.1"
     }
       buildFeatures {
         buildConfig = true
