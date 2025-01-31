@@ -137,6 +137,7 @@ jobs:
        
         run: |
          cd  /Users/runner/work/app/app/ios
+         sudo rm -rf Podfile.lock
          pod install --no-repo-update
 
  
