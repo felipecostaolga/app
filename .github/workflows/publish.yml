@@ -110,35 +110,12 @@ jobs:
         with:
           ruby-version: '3.0'
           bundler-cache: true
-      
-      - name: Listar Diretório Raiz
+          
+      - name: Install CocoaPods
         run: |
-          echo "==== Diretório Atual ===="
-          pwd
-          echo "==== Conteúdo do Diretório ===="
-          ls -la
-          echo "=========================="
-
-      - name: Verificar Existência da Pasta iOS
-        run: |
-          if [ -d "./ios" ]; then
-            echo "A pasta 'ios' existe."
-          else
-            echo "A pasta 'ios' NÃO existe."
-            exit 1
-          fi
-
-      - name: Listar Conteúdo da Pasta iOS
-        run: |
-          echo "==== Conteúdo da Pasta iOS ===="
-          ls -la ios
-          echo "==============================="
-
-      - name: Mostrar Caminho Absoluto da Pasta iOS
-        run: |
-          echo "==== Caminho Absoluto da Pasta iOS ===="
-          realpath ios
-          echo "========================================="    
+          sudo gem install cocoapods
+          cd ios
+          pod install --repo-update    
 
       - name: Install Fastlane
         run: gem install fastlane
