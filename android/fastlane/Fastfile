@@ -46,7 +46,7 @@ platform :ios do
     # Constrói o aplicativo
     build_app(
       scheme: "DVRO",
-      workspace: File.join(ios_dir, "DVRO.xcworkspace"),
+      workspace: "/Users/runner/work/app/app/ios/DVRO.xcworkspace",
       export_method: "app-store"
     )
 
