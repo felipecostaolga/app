@@ -34,7 +34,7 @@ platform :ios do
           git_url: "https://#{ENV['CERT_GIT']}@github.com/felipecostaolga/app.git",
           api_key: api_key)
 
-    build_app(scheme: "DVRO", workspace:"../../ios/DVRO.xcworkspace",export_method: "app-store")
+    build_app(scheme: "DVRO", workspace:"../ios/DVRO.xcworkspace",export_method: "app-store")
 
     upload_to_app_store(api_key: api_key,
                         skip_metadata: true,
