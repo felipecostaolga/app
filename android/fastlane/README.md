@@ -13,23 +13,39 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 # Available Actions
 
+### deploy_all
+
+```sh
+[bundle exec] fastlane deploy_all
+```
+
+Deploy de tudo (Android + iOS) - para rodar localmente
+
+----
+
+
 ## Android
 
-### android deploy
+### android deploy_android
 
 ```sh
-[bundle exec] fastlane android deploy
+[bundle exec] fastlane android deploy_android
 ```
 
-Deploy (build .aab e envia para a Play Store)
+Build e envio para Google Play
 
-### android create_app
+----
+
+
+## iOS
+
+### ios deploy_ios
 
 ```sh
-[bundle exec] fastlane android create_app
+[bundle exec] fastlane ios deploy_ios
 ```
 
-Cria o app do zero na Play Store
+Build e envio para App Store Connect
 
 ----
 
