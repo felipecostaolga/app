@@ -123,7 +123,7 @@ jobs:
         run: npm install --force
       - name: install Dependencies
         run: |
-          npm install --save-dev patch-package postinstall-postinstall
+          npm install --save-dev patch-package postinstall-postinstall --force
       - name: Install CocoaPods
         run: |
           sudo gem install cocoapods
