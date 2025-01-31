@@ -4,6 +4,7 @@ default_platform(:ios)
 
 desc "Deploy de tudo (Android + iOS) - para rodar localmente"
 lane :deploy_all do
+  ios_dir = File.expand_path("../../../ios", __FILE__)
   UI.message("=== Deploy Android ===")
   sh("fastlane android deploy_android")
 
@@ -34,7 +35,7 @@ platform :ios do
           git_url: "https://#{ENV['CERT_GIT']}@github.com/felipecostaolga/app.git",
           api_key: api_key)
 
-    build_app(scheme: "DVRO", workspace:"../ios/DVRO.xcworkspace",export_method: "app-store")
+    build_app(scheme: "DVRO", workspace:File.join(ios_dir, "DVRO.xcworkspace"),,export_method: "app-store")
 
     upload_to_app_store(api_key: api_key,
                         skip_metadata: true,
