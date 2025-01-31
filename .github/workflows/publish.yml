@@ -124,15 +124,15 @@ jobs:
       - name: install Dependencies
         run: |
           npm install --save-dev patch-package postinstall-postinstall --force
-      - name: Install CocoaPods
-        run: |
-          sudo gem install cocoapods
-          cd ios
+      # - name: Install CocoaPods
+      #   run: |
+      #     sudo gem install cocoapods
+      #     cd ios
        
-          pod cache clean --all
-          rm -rf Podfile.lock
-          pod repo update
-          pod install
+      #     pod cache clean --all
+      #     rm -rf Podfile.lock
+      #     pod repo update
+      #     pod install
 
       - name: Install Fastlane
         run: gem install fastlane
