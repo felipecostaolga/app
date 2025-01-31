@@ -15,13 +15,21 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios custom_lane
+### ios deploy
 
 ```sh
-[bundle exec] fastlane ios custom_lane
+[bundle exec] fastlane ios deploy
 ```
 
-Description of what the lane does
+Deploy (gera .ipa e envia para TestFlight/App Store)
+
+### ios create_app
+
+```sh
+[bundle exec] fastlane ios create_app
+```
+
+Cria o app no App Store Connect (caso não exista)
 
 ----
 
