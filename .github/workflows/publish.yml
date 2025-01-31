@@ -111,6 +111,13 @@ jobs:
           ruby-version: '3.0'
           bundler-cache: true
           
+      - name: Clear Gem Cache
+        run: |
+          gem sources --remove https://rubygems.org/
+          gem sources -a https://rubygems.org/
+          gem cleanup
+          gem uninstall boost -aIx || true    
+          
         # 7) Instalar Dependências do Node
       - name: Install Dependencies
         run: npm install --force
