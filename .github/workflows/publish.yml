@@ -137,7 +137,8 @@ jobs:
        
         run: |
          cd  /Users/runner/work/app/app/ios
-         pod init && pod install
+         pod install --no-repo-update
+
  
       
 
