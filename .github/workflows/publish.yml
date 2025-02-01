@@ -25,11 +25,9 @@ jobs:
           gem cleanup
           gem uninstall boost -aIx || true
 
-      # Atualiza o CocoaPods para a versão mais recente
       - name: Update CocoaPods
         run: sudo gem install cocoapods
 
-      # Limpa o cache do CocoaPods para evitar problemas de checksum
       - name: Clear CocoaPods Cache
         run: pod cache clean --all
 
@@ -41,10 +39,12 @@ jobs:
           npm install --save-dev patch-package postinstall-postinstall --force
 
       # --- Novo passo: Patch no podspec do boost ---
-      - name: Patch boost podspec checksum
+      - name: Patch boost podspec URL and checksum
         run: |
           cd ios
-          # Ajusta o caminho conforme a estrutura do seu repositório.
+          # Atualiza a URL de download para o boost (usando o novo endpoint)
+          sed -i '' 's|https://dl.bintray.com/boostorg/release/1.76.0/source/boost_1_76_0.tar.bz2|https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2|g' ../node_modules/react-native/third-party-podspecs/boost.podspec
+          # Atualiza o checksum esperado para o arquivo baixado
           sed -i '' 's/f0397ba6e982c4450f27bf32a2a83292aba035b827a5623a14636ea583318c41/79e6d3f986444e5a80afbeccdaf2d1c1cf964baa8d766d20859d653a16c39848/g' ../node_modules/react-native/third-party-podspecs/boost.podspec
 
       - name: Install pod dependencies
