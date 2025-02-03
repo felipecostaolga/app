@@ -26,7 +26,7 @@ jobs:
           gem uninstall boost -aIx || true
 
       - name: Update CocoaPods
-        run: sudo gem install cocoapods 
+        run: sudo gem install cocoapods
 
       - name: Clear CocoaPods Cache
         run: pod cache clean --all
@@ -38,13 +38,12 @@ jobs:
         run: |
           npm install --save-dev patch-package postinstall-postinstall --force
 
-      # Passo para substituir o boost.podspec existente em node_modules pelo arquivo do S3
-      - name: Replace boost.podspec from S3 in node_modules
+     
+      # Passo para substituir o URL específico dentro do arquivo boost.podspec
+      - name: Replace URL in boost.podspec
         run: |
-          echo "Baixando boost.podspec do S3..."
-          curl -o boost.podspec.new https://archivesappol.s3.us-west-2.amazonaws.com/boost.podspec
-          echo "Substituindo arquivo em node_modules/react-native/third-party-podspecs/boost.podspec..."
-          mv -f boost.podspec.new node_modules/react-native/third-party-podspecs/boost.podspec
+          echo "Substituindo URL no arquivo boost.podspec..."
+          sed -i '' 's|https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2|https://archives.boost.io/release/1.76.0/source/boost_1_76_0.tar.bz2|g' node_modules/react-native/third-party-podspecs/boost.podspec
 
       - name: Cache CocoaPods
         uses: actions/cache@v3
