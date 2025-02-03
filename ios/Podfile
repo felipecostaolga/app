@@ -38,12 +38,10 @@ target 'DVRO' do
   flags = get_default_flags()
 
   use_react_native!(
-  :path => config[:reactNativePath],
-  :hermes_enabled => false,
-  :fabric_enabled => false,
-  :flipper_configuration => FlipperConfiguration.disabled, # Alteração aqui
-  :app_path => "#{Pod::Config.instance.installation_root}/.."
-)
+    :path => '../node_modules/react-native',
+    :fabric_enabled => false,
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
 
   target 'DVROTests' do
     inherit! :complete
