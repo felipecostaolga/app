@@ -11,8 +11,8 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		22DC266DFD63D57FBD394898 /* libPods-DVRO-DVROTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47DFE2DCEEF4ADFA34421657 /* libPods-DVRO-DVROTests.a */; };
-		71D5701E32487FD72E7C2A06 /* libPods-DVRO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B7F654B23F93A5C861A5836 /* libPods-DVRO.a */; };
+		56F219DBEF073C7DF0EF5008 /* libPods-DVRO-DVROTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B50D18C1FEF504AF8F3E931 /* libPods-DVRO-DVROTests.a */; };
+		75FEC7D1223DABEBF8390CB0 /* libPods-DVRO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB177E3A2E45B2E6B6F2201 /* libPods-DVRO.a */; };
 		D5346ADA2A6DFDB000572793 /* main.jsbundle in Sources */ = {isa = PBXBuildFile; fileRef = D5346AD92A6DFDB000572793 /* main.jsbundle */; };
 		D5395AF82A68238400198176 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5395AF72A68238400198176 /* NotificationService.swift */; };
 		D56D0D1B2BED684700EF7C55 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = D5346AD92A6DFDB000572793 /* main.jsbundle */; };
@@ -32,16 +32,16 @@
 		00E356EE1AD99517003FC87E /* DVROTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DVROTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* thefamousTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = thefamousTests.m; sourceTree = "<group>"; };
+		0BB177E3A2E45B2E6B6F2201 /* libPods-DVRO.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DVRO.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C583033CBD340F9FDD0FF1D /* Pods-DVRO-DVROTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVRO-DVROTests.release.xcconfig"; path = "Target Support Files/Pods-DVRO-DVROTests/Pods-DVRO-DVROTests.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = DVRO/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = DVRO/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DVRO/main.m; sourceTree = "<group>"; };
-		243A43FE06B8C10917232643 /* Pods-DVRO-DVROTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVRO-DVROTests.release.xcconfig"; path = "Target Support Files/Pods-DVRO-DVROTests/Pods-DVRO-DVROTests.release.xcconfig"; sourceTree = "<group>"; };
-		47DFE2DCEEF4ADFA34421657 /* libPods-DVRO-DVROTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DVRO-DVROTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B7F654B23F93A5C861A5836 /* libPods-DVRO.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DVRO.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		98B8C447EE916A07278D474C /* Pods-DVRO-DVROTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVRO-DVROTests.debug.xcconfig"; path = "Target Support Files/Pods-DVRO-DVROTests/Pods-DVRO-DVROTests.debug.xcconfig"; sourceTree = "<group>"; };
-		AE8B56B86142C9A22B991BA2 /* Pods-DVRO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVRO.release.xcconfig"; path = "Target Support Files/Pods-DVRO/Pods-DVRO.release.xcconfig"; sourceTree = "<group>"; };
-		BA142FA799BAA4A75AFBAB51 /* Pods-DVRO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVRO.debug.xcconfig"; path = "Target Support Files/Pods-DVRO/Pods-DVRO.debug.xcconfig"; sourceTree = "<group>"; };
+		4B50D18C1FEF504AF8F3E931 /* libPods-DVRO-DVROTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DVRO-DVROTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E36AAE9FC377142B10E99D4 /* Pods-DVRO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVRO.debug.xcconfig"; path = "Target Support Files/Pods-DVRO/Pods-DVRO.debug.xcconfig"; sourceTree = "<group>"; };
+		9F2D688ADA37D3C1B2AEF85C /* Pods-DVRO-DVROTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVRO-DVROTests.debug.xcconfig"; path = "Target Support Files/Pods-DVRO-DVROTests/Pods-DVRO-DVROTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AB3084434DE6E4C9D0ECE70E /* Pods-DVRO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVRO.release.xcconfig"; path = "Target Support Files/Pods-DVRO/Pods-DVRO.release.xcconfig"; sourceTree = "<group>"; };
 		D50F255D2A6B0D410099A62D /* OneSignalNotificationServiceExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtensionRelease.entitlements; sourceTree = "<group>"; };
 		D50F25602A6B16950099A62D /* DVRORelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DVRORelease.entitlements; path = DVRO/DVRORelease.entitlements; sourceTree = "<group>"; };
 		D524EB492A6B39CD003FE293 /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22DC266DFD63D57FBD394898 /* libPods-DVRO-DVROTests.a in Frameworks */,
+				56F219DBEF073C7DF0EF5008 /* libPods-DVRO-DVROTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71D5701E32487FD72E7C2A06 /* libPods-DVRO.a in Frameworks */,
+				75FEC7D1223DABEBF8390CB0 /* libPods-DVRO.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,8 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				6B7F654B23F93A5C861A5836 /* libPods-DVRO.a */,
-				47DFE2DCEEF4ADFA34421657 /* libPods-DVRO-DVROTests.a */,
+				0BB177E3A2E45B2E6B6F2201 /* libPods-DVRO.a */,
+				4B50D18C1FEF504AF8F3E931 /* libPods-DVRO-DVROTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -162,10 +162,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BA142FA799BAA4A75AFBAB51 /* Pods-DVRO.debug.xcconfig */,
-				AE8B56B86142C9A22B991BA2 /* Pods-DVRO.release.xcconfig */,
-				98B8C447EE916A07278D474C /* Pods-DVRO-DVROTests.debug.xcconfig */,
-				243A43FE06B8C10917232643 /* Pods-DVRO-DVROTests.release.xcconfig */,
+				5E36AAE9FC377142B10E99D4 /* Pods-DVRO.debug.xcconfig */,
+				AB3084434DE6E4C9D0ECE70E /* Pods-DVRO.release.xcconfig */,
+				9F2D688ADA37D3C1B2AEF85C /* Pods-DVRO-DVROTests.debug.xcconfig */,
+				0C583033CBD340F9FDD0FF1D /* Pods-DVRO-DVROTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -189,12 +189,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "DVROTests" */;
 			buildPhases = (
-				D26C68BD763113FFB292039B /* [CP] Check Pods Manifest.lock */,
+				254EBA31F568FF630A2AEB1E /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				CE97D07BEEEE744B47AF6B63 /* [CP] Embed Pods Frameworks */,
-				37F83C83F0E2798057492006 /* [CP] Copy Pods Resources */,
+				25DBA794063B4A95806BA54E /* [CP] Embed Pods Frameworks */,
+				29FC1A8C0260D6D7330DA195 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,14 +210,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "DVRO" */;
 			buildPhases = (
-				BE04212BF09E707D61A8EC67 /* [CP] Check Pods Manifest.lock */,
+				522DA26CFBD60171F22CA3BD /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				6B69497C74ADE0B6A9900947 /* [CP] Embed Pods Frameworks */,
-				E5DBB6A58A103346651729CE /* [CP] Copy Pods Resources */,
+				E4547E9CABBC12A8AC1D3AE1 /* [CP] Embed Pods Frameworks */,
+				3C3EDBB5CAEE14CD90339551 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -337,80 +337,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		37F83C83F0E2798057492006 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DVRO-DVROTests/Pods-DVRO-DVROTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DVRO-DVROTests/Pods-DVRO-DVROTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DVRO-DVROTests/Pods-DVRO-DVROTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6B69497C74ADE0B6A9900947 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DVRO/Pods-DVRO-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DVRO/Pods-DVRO-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DVRO/Pods-DVRO-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BE04212BF09E707D61A8EC67 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DVRO-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CE97D07BEEEE744B47AF6B63 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DVRO-DVROTests/Pods-DVRO-DVROTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DVRO-DVROTests/Pods-DVRO-DVROTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DVRO-DVROTests/Pods-DVRO-DVROTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D26C68BD763113FFB292039B /* [CP] Check Pods Manifest.lock */ = {
+		254EBA31F568FF630A2AEB1E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -432,7 +359,41 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E5DBB6A58A103346651729CE /* [CP] Copy Pods Resources */ = {
+		25DBA794063B4A95806BA54E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DVRO-DVROTests/Pods-DVRO-DVROTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DVRO-DVROTests/Pods-DVRO-DVROTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DVRO-DVROTests/Pods-DVRO-DVROTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		29FC1A8C0260D6D7330DA195 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DVRO-DVROTests/Pods-DVRO-DVROTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DVRO-DVROTests/Pods-DVRO-DVROTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DVRO-DVROTests/Pods-DVRO-DVROTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C3EDBB5CAEE14CD90339551 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -447,6 +408,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DVRO/Pods-DVRO-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		522DA26CFBD60171F22CA3BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DVRO-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4547E9CABBC12A8AC1D3AE1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DVRO/Pods-DVRO-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DVRO/Pods-DVRO-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DVRO/Pods-DVRO-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -510,7 +510,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98B8C447EE916A07278D474C /* Pods-DVRO-DVROTests.debug.xcconfig */;
+			baseConfigurationReference = 9F2D688ADA37D3C1B2AEF85C /* Pods-DVRO-DVROTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = Z72V34LC55;
@@ -543,7 +543,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 243A43FE06B8C10917232643 /* Pods-DVRO-DVROTests.release.xcconfig */;
+			baseConfigurationReference = 0C583033CBD340F9FDD0FF1D /* Pods-DVRO-DVROTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -577,7 +577,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA142FA799BAA4A75AFBAB51 /* Pods-DVRO.debug.xcconfig */;
+			baseConfigurationReference = 5E36AAE9FC377142B10E99D4 /* Pods-DVRO.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
@@ -619,7 +619,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE8B56B86142C9A22B991BA2 /* Pods-DVRO.release.xcconfig */;
+			baseConfigurationReference = AB3084434DE6E4C9D0ECE70E /* Pods-DVRO.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
