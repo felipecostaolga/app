@@ -42,10 +42,19 @@ jobs:
       - name: Patch boost podspec URL and checksum
         run: |
           cd ios
-          # Substitui a URL antiga pela nova correta (mantendo o arquivo tar.bz2)
+          # Substitui a URL antiga pela nova correta
           sed -i '' 's|https://dl.bintray.com/boostorg/release/1.76.0/source/boost_1_76_0.tar.bz2|https://archives.boost.io/release/1.76.0/source/boost_1_76_0.tar.bz2|g' ../node_modules/react-native/third-party-podspecs/boost.podspec
           # Substitui o checksum antigo pelo valor correto
           sed -i '' 's/f0397ba6e982c4450f27bf32a2a83292aba035b827a5623a14636ea583318c41/79e6d3f986444e5a80afbeccdaf2d1c1cf964baa8d766d20859d653a16c39848/g' ../node_modules/react-native/third-party-podspecs/boost.podspec
+
+      # --- Novo passo: Cache da pasta Pods ---
+      - name: Cache CocoaPods
+        uses: actions/cache@v3
+        with:
+          path: ios/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
 
       - name: Install pod dependencies
         run: |
