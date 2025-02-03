@@ -26,7 +26,7 @@ jobs:
           gem uninstall boost -aIx || true
 
       - name: Update CocoaPods
-        run: sudo gem install cocoapods -v 1.15.2
+        run: sudo gem install cocoapods 
 
       - name: Clear CocoaPods Cache
         run: pod cache clean --all
