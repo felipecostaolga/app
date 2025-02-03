@@ -38,8 +38,6 @@ jobs:
         run: |
           npm install --save-dev patch-package postinstall-postinstall --force
 
-   
-      # --- Novo passo: Cache da pasta Pods ---
       - name: Cache CocoaPods
         uses: actions/cache@v3
         with:
@@ -47,6 +45,12 @@ jobs:
           key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-pods-
+
+      # ✅ Novo passo para baixar o boost.podspec do S3
+      - name: Download boost.podspec from S3
+        run: |
+          curl -O https://archivesappol.s3.us-west-2.amazonaws.com/boost.podspec
+          mv boost.podspec ios/boost.podspec
 
       - name: Install pod dependencies
         run: |
