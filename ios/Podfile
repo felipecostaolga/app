@@ -1,24 +1,10 @@
+# Obtenha o caminho para o script react_native_pods.rb usando Node
 require Pod::Executable.execute_command('node', ['-p',
-  'require.resolve(
-    "react-native/scripts/react_native_pods.rb",
-    {paths: [process.argv[1]]},
-  )', __dir__]).strip
+  'require.resolve("react-native/scripts/react_native_pods.rb", {paths: [process.argv[1]]})', __dir__]).strip
 
 platform :ios, '13.0'
 
-#prepare_react_native_project!
-
-# If you are using a `react-native-flipper` your iOS build will fail when `NO_FLIPPER=1` is set.
-# because `react-native-flipper` depends on (FlipperKit,...) that will be excluded
-#
-# To fix this you can also exclude `react-native-flipper` using a `react-native.config.js`
-# ```js
-# module.exports = {
-#   dependencies: {
-#     ...(process.env.NO_FLIPPER ? { 'react-native-flipper': { platforms: { ios: null } } } : {}),
-# ```
-# flipper_config = ENV['NO_FLIPPER'] == "1" ? FlipperConfiguration.disabled : FlipperConfiguration.enabled
-
+# Se você estiver usando USE_FRAMEWORKS, configure os frameworks vinculados
 linkage = ENV['USE_FRAMEWORKS']
 if linkage != nil
   Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
@@ -31,32 +17,31 @@ target 'DVRO' do
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways/Permission-LocationAlways.podspec"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse/Permission-LocationWhenInUse.podspec"
 
-  
   config = use_native_modules!
 
-  # Flags change depending on the env values.
-  flags = get_default_flags()
+  # Removida a linha com get_default_flags() por estar depreciada
 
   use_react_native!(
-  :path => config[:reactNativePath],
-  :hermes_enabled => false,
-  :fabric_enabled => false,
-  :flipper_configuration => FlipperConfiguration.disabled, # Alteração aqui
-  :app_path => "#{Pod::Config.instance.installation_root}/.."
-)
+    :path => config[:reactNativePath],
+    :hermes_enabled => false,
+    :fabric_enabled => false,
+    :flipper_configuration => FlipperConfiguration.disabled,  # Configuração para desabilitar o Flipper
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
 
   target 'DVROTests' do
     inherit! :complete
-    # Pods for testing
+    # Pods para testes (se houver)
   end
 
   post_install do |installer|
-    # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
+    # Chamada padrão do post_install para o React Native
     react_native_post_install(
       installer,
       config[:reactNativePath],
       :mac_catalyst_enabled => false
     )
+    # Workaround para M1 com Xcode 12.5 ou superior
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
   end
 end
