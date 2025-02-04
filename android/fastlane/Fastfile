@@ -49,9 +49,7 @@ platform :ios do
       workspace: "/Users/runner/work/app/app/ios/DVRO.xcworkspace",
       export_method: "app-store",
       xcargs: "-allowProvisioningUpdates",
-      export_options: {
-        signingStyle: "manual"
-      }
+     
     )
     
     # Faz upload para a App Store
