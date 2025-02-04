@@ -43,12 +43,15 @@ platform :ios do
       api_key: api_key
     )
     
-    # Constrói o aplicativo passando a flag -allowProvisioningUpdates para permitir que o Xcode gere perfis automaticamente
+    # Constrói o aplicativo, forçando o uso de assinatura manual e permitindo atualizações de provisionamento
     build_app(
       scheme: "DVRO",
       workspace: "/Users/runner/work/app/app/ios/DVRO.xcworkspace",
       export_method: "app-store",
-      xcargs: "-allowProvisioningUpdates"
+      xcargs: "-allowProvisioningUpdates",
+      export_options: {
+        signingStyle: "manual"
+      }
     )
     
     # Faz upload para a App Store
