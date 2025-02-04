@@ -4,7 +4,7 @@ require Pod::Executable.execute_command('node', ['-p',
 
 platform :ios, '13.0'
 
-# Se você estiver usando USE_FRAMEWORKS, configure os frameworks vinculados
+# Se estiver usando USE_FRAMEWORKS, configure os frameworks vinculados
 linkage = ENV['USE_FRAMEWORKS']
 if linkage != nil
   Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
@@ -19,29 +19,33 @@ target 'DVRO' do
 
   config = use_native_modules!
 
-  # Removida a linha com get_default_flags() por estar depreciada
-
   use_react_native!(
     :path => config[:reactNativePath],
     :hermes_enabled => false,
     :fabric_enabled => false,
-    :flipper_configuration => FlipperConfiguration.disabled,  # Configuração para desabilitar o Flipper
+    :flipper_configuration => FlipperConfiguration.disabled,  # Desabilita o Flipper
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
   target 'DVROTests' do
     inherit! :complete
-    # Pods para testes (se houver)
+    # Outros pods para testes, se houver
   end
 
   post_install do |installer|
-    # Chamada padrão do post_install para o React Native
+    # Configuração padrão do React Native
     react_native_post_install(
       installer,
       config[:reactNativePath],
       :mac_catalyst_enabled => false
     )
-    # Workaround para M1 com Xcode 12.5 ou superior
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
+
+    # Força o deployment target de todos os pods para 13.0
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+      end
+    end
   end
 end
