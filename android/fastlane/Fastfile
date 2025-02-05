@@ -48,23 +48,24 @@ platform :ios do
       scheme: "DVRO",
       workspace: "/Users/runner/work/app/app/ios/DVRO.xcworkspace",
       export_method: "app-store",
-      disable_xcpretty: true,
-
-      # Força o modo Manual e informa Team + Provisioning Profile
+    
       xcargs: [
         "-allowProvisioningUpdates",
         "CODE_SIGN_STYLE=Manual",
         "DEVELOPMENT_TEAM=Z72V34LC55",
-        "PROVISIONING_PROFILE_SPECIFIER=\"match AppStore br.com.delivery.thefamous\""
+        # Note aqui o sufixo "1737901035"
+        "PROVISIONING_PROFILE_SPECIFIER=\"match AppStore br.com.delivery.thefamous 1737901035\""
       ].join(" "),
     
       export_options: {
         provisioningProfiles: {
-          "br.com.delivery.thefamous" => "match AppStore br.com.delivery.thefamous"
+          # Bundle ID => Nome exato do perfil
+          "br.com.delivery.thefamous" => "match AppStore br.com.delivery.thefamous 1737901035"
         },
         teamID: "Z72V34LC55"
       }
     )
+    
     
     
     
