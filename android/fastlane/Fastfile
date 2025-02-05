@@ -61,7 +61,7 @@ platform :ios do
       # Na hora de exportar o .ipa, informe o mapa de provisioningProfiles
       export_options: {
         provisioningProfiles: {
-          "br.com.delivery.thefamous" => "match Development br.com.delivery.thefamous"
+          "br.com.delivery.thefamous" => "match AppStore br.com.delivery.thefamous 1737901035"
         },
         teamID: "Z72V34LC55"
       }
