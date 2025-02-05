@@ -48,7 +48,8 @@ platform :ios do
       scheme: "DVRO",
       workspace: "/Users/runner/work/app/app/ios/DVRO.xcworkspace",
       export_method: "app-store",
-    
+      configuration: "Release",          # <--- Garante que use a config Release
+
       xcargs: [
         "-allowProvisioningUpdates",
         "CODE_SIGN_STYLE=Manual",
