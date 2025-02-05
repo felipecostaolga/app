@@ -534,7 +534,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.thefamous;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore br.com.delivery.thefamous 1737901035";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -568,7 +568,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.thefamous;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore br.com.delivery.thefamous 1737901035";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -608,7 +608,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.thefamous;
 				PRODUCT_NAME = app;
-				PROVISIONING_PROFILE_SPECIFIER = "match Development br.com.delivery.thefamous";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore br.com.delivery.thefamous 1737901035";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -650,7 +650,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.thefamous;
 				PRODUCT_NAME = "app#";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development br.com.delivery.thefamous";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore br.com.delivery.thefamous 1737901035";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -840,7 +840,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.thefamous;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore br.com.delivery.thefamous 1737901035";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -887,7 +887,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.delivery.thefamous;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore br.com.delivery.thefamous 1737901035";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
