@@ -46,26 +46,18 @@ platform :ios do
     # Constrói o aplicativo, forçando o uso de assinatura manual e permitindo atualizações de provisionamento
     build_app(
       scheme: "DVRO",
-      workspace: "/Users/runner/work/app/app/ios/DVRO.xcworkspace",
-      export_method: "app-store",
-      configuration: "Release",            # Garante que use RELEASE
-
-      xcargs: [
-        "-allowProvisioningUpdates",
-        "CODE_SIGN_STYLE=Manual",
-        "DEVELOPMENT_TEAM=Z72V34LC55",
-        # Note aqui o sufixo "1737901035"
-        "PROVISIONING_PROFILE_SPECIFIER=\"match AppStore br.com.delivery.thefamous 1737901035\""
-      ].join(" "),
-    
+      workspace: "ios/DVRO.xcworkspace",
+      configuration: "Release",            # Força o uso da configuração Release
+      export_method: "app-store",          # Para distribuição via App Store
+      xcargs: "CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=Z72V34LC55",
       export_options: {
         provisioningProfiles: {
-          # Bundle ID => Nome exato do perfil
-          "br.com.delivery.thefamous" => "match AppStore br.com.delivery.thefamous 1737901035"
+          "br.com.delivery.thefamous" => "match AppStore br.com.delivery.thefamous 1737901035"  # Use o nome exato do seu profile
         },
         teamID: "Z72V34LC55"
       }
     )
+    
     
     
     
