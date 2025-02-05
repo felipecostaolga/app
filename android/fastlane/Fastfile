@@ -46,7 +46,7 @@ platform :ios do
     # Constrói o aplicativo, forçando o uso de assinatura manual e permitindo atualizações de provisionamento
     build_app(
       scheme: "DVRO",
-      workspace: "ios/DVRO.xcworkspace",
+      workspace: "../ios/DVRO.xcworkspace",
       configuration: "Release",            # Força o uso da configuração Release
       export_method: "app-store",          # Para distribuição via App Store
       xcargs: "CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=Z72V34LC55",
