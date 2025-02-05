@@ -44,13 +44,30 @@ platform :ios do
     )
     
     # Constrói o aplicativo, forçando o uso de assinatura manual e permitindo atualizações de provisionamento
-      build_app(
-    scheme: "DVRO",
-    workspace: "/Users/runner/work/app/app/ios/DVRO.xcworkspace",
-    export_method: "app-store",
-    xcargs: "-allowProvisioningUpdates CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=Z72V34LC55",
-    export_team_id: "Z72V34LC55"
-  )
+    build_app(
+      scheme: "DVRO",
+      workspace: "/Users/runner/work/app/app/ios/DVRO.xcworkspace",
+      # Como é perfil de desenvolvimento, use "development"
+      export_method: "development",
+    
+      # Força o modo Manual e informa Team + Provisioning Profile
+      xcargs: [
+        "-allowProvisioningUpdates",
+        "CODE_SIGN_STYLE=Manual",
+        "DEVELOPMENT_TEAM=Z72V34LC55",
+        "PROVISIONING_PROFILE_SPECIFIER=match Development br.com.delivery.thefamous"
+      ].join(" "),
+    
+      # Na hora de exportar o .ipa, informe o mapa de provisioningProfiles
+      export_options: {
+        provisioningProfiles: {
+          "br.com.delivery.thefamous" => "match Development br.com.delivery.thefamous"
+        },
+        teamID: "Z72V34LC55"
+      }
+    )
+    
+    
     
     # Faz upload para a App Store
     upload_to_app_store(
