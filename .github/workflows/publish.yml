@@ -79,7 +79,7 @@ jobs:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         run: |
           cd android
-          fastlane ios deploy_ios
+          fastlane ios deploy_ios --verbose
 
       - name: Notify Discord (iOS)
         if: always()
