@@ -39,7 +39,6 @@ platform :ios do
     match(
       type: "appstore",
       app_identifier: "br.com.delivery.thefamous",
-      disable_xcpretty: true,
       git_url: "https://#{ENV['CERT_GIT']}@github.com/felipecostaolga/app.git",
       api_key: api_key
     )
@@ -49,7 +48,8 @@ platform :ios do
       scheme: "DVRO",
       workspace: "/Users/runner/work/app/app/ios/DVRO.xcworkspace",
       export_method: "app-store",
-    
+      disable_xcpretty: true,
+
       # Força o modo Manual e informa Team + Provisioning Profile
       xcargs: [
         "-allowProvisioningUpdates",
