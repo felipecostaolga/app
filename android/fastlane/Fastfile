@@ -48,14 +48,14 @@ platform :ios do
       scheme: "DVRO",
       workspace: "/Users/runner/work/app/app/ios/DVRO.xcworkspace",
       # Como é perfil de desenvolvimento, use "development"
-      export_method: "development",
+      export_method: "app-store",
     
       # Força o modo Manual e informa Team + Provisioning Profile
       xcargs: [
         "-allowProvisioningUpdates",
         "CODE_SIGN_STYLE=Manual",
         "DEVELOPMENT_TEAM=Z72V34LC55",
-        "PROVISIONING_PROFILE_SPECIFIER=match Development br.com.delivery.thefamous"
+        "PROVISIONING_PROFILE_SPECIFIER=match AppStore br.com.delivery.thefamous"
       ].join(" "),
     
       # Na hora de exportar o .ipa, informe o mapa de provisioningProfiles
