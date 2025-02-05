@@ -39,6 +39,7 @@ platform :ios do
     match(
       type: "appstore",
       app_identifier: "br.com.delivery.thefamous",
+      disable_xcpretty: true,
       git_url: "https://#{ENV['CERT_GIT']}@github.com/felipecostaolga/app.git",
       api_key: api_key
     )
@@ -50,6 +51,7 @@ platform :ios do
       # Como é perfil de desenvolvimento, use "development"
       export_method: "app-store",
       print_command_output: true,
+      suppress_xcode_output: false
 
       # Força o modo Manual e informa Team + Provisioning Profile
       xcargs: [

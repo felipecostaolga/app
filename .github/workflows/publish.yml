@@ -80,6 +80,11 @@ jobs:
         run: |
           cd android
           fastlane ios deploy_ios --verbose
+      - name: Upload Xcode logs
+        uses: actions/upload-artifact@v3
+        with:
+            name: xcode-build-logs
+            path: ~/Library/Logs/gym 
 
       - name: Notify Discord (iOS)
         if: always()
