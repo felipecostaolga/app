@@ -48,8 +48,8 @@ platform :ios do
       scheme: "DVRO",
       workspace: "/Users/runner/work/app/app/ios/DVRO.xcworkspace",
       export_method: "app-store",
-      xcargs: "-allowProvisioningUpdates",
-      export_team_id: "Z72V34LC55"
+      xcargs: "-allowProvisioningUpdates CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=Z72V34LC55"
+      team_id: "Z72V34LC55"
     )
     
     # Faz upload para a App Store
