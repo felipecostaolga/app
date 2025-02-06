@@ -110,7 +110,8 @@ export default class OlgaFoodWebview extends React.Component {
   }
 
   onShouldStartLoadWithRequest(navState) {
-    const domainRegex = /https?:\/\/(.*\.)?(olga\.tech|sites\.olga\.tech)/;
+    const domainRegex =
+      /https?:\/\/(?:[a-zA-Z0-9-]+\.)*(?:olga\.tech|sites\.olga\.tech|delivery\.roister\.com\.br)(?:\/|$)/;
     if (domainRegex.test(navState.url)) {
       return true;
     } else {
