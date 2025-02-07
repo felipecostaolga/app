@@ -78,14 +78,14 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.mundoanimaldelivery"
+    namespace "br.com.delivery.Mundo Animal Delivery"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.mundoanimaldelivery"
+        applicationId "br.com.delivery.Mundo Animal Delivery"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 100
-        versionName "100.1"
+        versionCode 101
+        versionName "101.1"
     }
       buildFeatures {
         buildConfig = true
