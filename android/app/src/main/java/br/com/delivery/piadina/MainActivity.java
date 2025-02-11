@@ -1,4 +1,4 @@
-package br.com.delivery.Mundo Animal Delivery;
+package br.com.delivery.piadina;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
