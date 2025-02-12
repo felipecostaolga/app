@@ -94,9 +94,9 @@ android {
     signingConfigs {
     
          release {
-            storeFile file('mundoanimal-olga.keystore')
+            storeFile file('mundoanimaldelivery-olga.keystore')
             storePassword '12345678'
-            keyAlias 'mundoanimal'
+            keyAlias 'mundoanimaldelivery'
             keyPassword '12345678'
         }
     }
