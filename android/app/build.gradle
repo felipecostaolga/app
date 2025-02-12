@@ -78,10 +78,10 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.app js"
+    namespace "mundoanimal"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.app js"
+        applicationId "mundoanimal"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 101
@@ -94,9 +94,9 @@ android {
     signingConfigs {
     
          release {
-            storeFile file('appjs-olga.keystore')
+            storeFile file('mundoanimal-olga.keystore')
             storePassword '12345678'
-            keyAlias 'appjs-olga'
+            keyAlias 'mundoanimal'
             keyPassword '12345678'
         }
     }

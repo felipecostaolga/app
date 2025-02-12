@@ -1,4 +1,4 @@
-package br.com.delivery.app js;
+package br.com.delivery.mundoanimal;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
