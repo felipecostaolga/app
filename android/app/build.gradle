@@ -78,14 +78,14 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.piadina"
+    namespace "br.com.delivery.app js"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.piadina"
+        applicationId "br.com.delivery.app js"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 119
-        versionName "119.1"
+        versionCode 101
+        versionName "101.1"
     }
       buildFeatures {
         buildConfig = true
@@ -94,9 +94,9 @@ android {
     signingConfigs {
     
          release {
-            storeFile file('piadina-olga.keystore')
+            storeFile file('appjs-olga.keystore')
             storePassword '12345678'
-            keyAlias 'piadina-olga'
+            keyAlias 'appjs-olga'
             keyPassword '12345678'
         }
     }

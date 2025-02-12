@@ -1,7 +1,7 @@
 {
-  "url": "https://piadina.sites.olga.tech",
-  "primaryColor": "#792230",
-  "secondaryColor": "#792230",
+  "url": "chefinhos.olga.tech",
+  "primaryColor": "#faba05",
+  "secondaryColor": "#faba05",
   "OneSignalKey": "",
   "olgaApi": "https://api.olga.tech/",
   "olgaApiFood": "https://api.food.olga.tech"

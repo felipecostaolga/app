@@ -1,4 +1,4 @@
-package br.com.delivery.piadina;
+package br.com.delivery.app js;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
