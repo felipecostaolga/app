@@ -1,8 +1,8 @@
 {
-  "url": "https://sucao.olga.tech",
-  "primaryColor": "#ffffff",
-  "secondaryColor": "#ffffff",
-  "OneSignalKey": "f3f8fd48-dbba-4c45-bbc3-f2f0464c1e95",
+  "url": "https://mundoanimal.sites.olga.tech/",
+  "primaryColor": "#faba05",
+  "secondaryColor": "#faba05",
+  "OneSignalKey": "721229eb-85a5-400d-bf57-92d30c632dc9",
   "olgaApi": "https://api.olga.tech/",
   "olgaApiFood": "https://api.food.olga.tech"
 }

@@ -1,4 +1,4 @@
-package br.com.delivery.sucao;
+package br.com.delivery.mundoanimaldelivery;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

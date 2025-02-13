@@ -1,4 +1,4 @@
-package br.com.delivery.sucao;
+package br.com.delivery.mundoanimaldelivery;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
