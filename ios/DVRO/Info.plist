@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>pt-br</string>
 	<key>CFBundleDisplayName</key>
-	<string>Mundo Animal Delivery</string>
+	<string>Mundo Animal</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIcons</key>
