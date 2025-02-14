@@ -7,22 +7,22 @@ on:
   pull_request:
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: macos-latest
+
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Checkout do código
+        uses: actions/checkout@v2
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1.0'
+      - name: Instalar dependências Ruby
+        run: bundle install --jobs 4 --retry 3
 
-      - name: Install Fastlane
-        run: gem install fastlane
-        
-      - name: Install rexml gem
-        run: gem install rexml -v 3.2.5
+      - name: Executar Fastlane Match Development
+        run: bundle exec fastlane match development
+        env:
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+
 
       # Caso esteja usando um Gemfile, adicione:
       #- name: Install Bundler Dependencies
