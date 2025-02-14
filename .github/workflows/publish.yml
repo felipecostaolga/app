@@ -24,8 +24,11 @@ jobs:
       - name: Sync Certificates and Provisioning Profiles with Match
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          MATCH_GIT_URL: "https://${{ secrets.GH_TOKEN_REPO }}@github.com/felipecosta91/test-robson.git"
+          MATCH_GIT_URL: "https://${{ secrets.MATCH_GIT_TOKEN }}@github.com/felipecosta91/test-robson.git"
+          FASTLANE_USER: ${{ secrets.APPLE_ID }}  # Seu Apple ID armazenado como secret
+          FASTLANE_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}  # Senha específica para app
         run: bundle exec fastlane match development
+      
 
       - name: Install CocoaPods Dependencies
         working-directory: ios
