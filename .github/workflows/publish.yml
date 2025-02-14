@@ -15,15 +15,25 @@ jobs:
 
       - name: Install Node dependencies
         run: npm install --force
-        
+
       - name: Replace URL in boost.podspec
         run: |
           echo "Substituindo URL no arquivo boost.podspec..."
           sed -i '' 's|https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2|https://archives.boost.io/release/1.76.0/source/boost_1_76_0.tar.bz2|g' node_modules/react-native/third-party-podspecs/boost.podspec
 
-      - name: Install CocoaPods Dependencies
-        working-directory: ios
-        run: pod install --repo-update
+      - name: Cache CocoaPods
+        uses: actions/cache@v3
+        with:
+          path: ios/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+
+      - name: Install pod dependencies
+        run: |
+          cd ios
+          sudo rm -rf Podfile.lock
+          pod install --no-repo-update
 
 
 
