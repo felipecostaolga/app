@@ -12,6 +12,10 @@ jobs:
     steps:
       - name: Checkout do código
         uses: actions/checkout@v2
+        
+      - name: Install CocoaPods Dependencies
+        working-directory: ios
+        run: pod install
 
       - name: Build e Archive
         run: |
