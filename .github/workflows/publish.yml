@@ -15,9 +15,10 @@ jobs:
 
       - name: Install Node dependencies
         run: npm install --force
-      - name: Install CocoaPods Dependencies
+      - name: Update SocketRocket pod
         working-directory: ios
-        run: pod install --repo-update
+        run: pod update SocketRocket
+
 
 
       - name: Build e Archive
