@@ -15,9 +15,10 @@ jobs:
 
       - name: Install Node dependencies
         run: npm install --force
-      - name: Install CocoaPods dependencies
+      - name: Install CocoaPods Dependencies
         working-directory: ios
-        run: pod install
+        run: pod install --repo-update
+
 
       - name: Build e Archive
         run: |
