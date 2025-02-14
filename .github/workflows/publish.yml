@@ -16,7 +16,7 @@ jobs:
       - name: Build e Archive
         run: |
           xcodebuild clean archive \
-            -workspace SeuWorkspace.xcworkspace \
+            -workspace DVRO.xcworkspace \
             -scheme SeuScheme \
             -configuration Release \
             -archivePath $PWD/build/SeuApp.xcarchive
