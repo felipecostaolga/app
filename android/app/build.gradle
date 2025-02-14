@@ -70,7 +70,7 @@ def enableProguardInReleaseBuilds = false
 def jscFlavor = 'org.webkit:android-jsc:+'
 
 android {
-        namespace "br.com.delivery.mundoanimaldelivery"
+        namespace "br.com.delivery.thefamous"
 
     testOptions {
         unitTests.all {
@@ -82,11 +82,11 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.mundoanimaldelivery"
+        applicationId "br.com.delivery.thefamous"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 102
-        versionName "102.1"
+        versionCode 179
+        versionName "179.1"
     }
       buildFeatures {
         buildConfig = true
@@ -95,9 +95,9 @@ android {
     signingConfigs {
     
          release {
-            storeFile file('mundoanimaldelivery-olga.keystore')
+            storeFile file('thefamous-olga.keystore')
             storePassword '12345678'
-            keyAlias 'mundoanimaldelivery-olga'
+            keyAlias 'thefamous-olga'
             keyPassword '12345678'
         }
     }

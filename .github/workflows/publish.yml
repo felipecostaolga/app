@@ -59,8 +59,8 @@ jobs:
           xcrun altool --upload-app \
             -f $PWD/build/IPA/SeuApp.ipa \
             -t ios \
-            -u DJUBAK7398 \
+            -u $APPLE_ID \
             -p $APPLE_SPECIFIC_PASSWORD
         env:
-          APPLE_ID: DJUBAK7398
+          APPLE_ID: ${{ secrets.APPLE_ID }}
           APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_SPECIFIC_PASSWORD }}
