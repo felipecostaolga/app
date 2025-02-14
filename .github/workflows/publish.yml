@@ -38,13 +38,14 @@ jobs:
 
 
 
-      - name: Build e Archive
+      - name: Build and Archive
         run: |
           xcodebuild clean archive \
             -workspace ios/DVRO.xcworkspace \
             -scheme DVRO \
             -configuration Release \
-            -archivePath $PWD/build/DVRO.xcarchive
+            -archivePath $PWD/build/DVRO.xcarchive \
+            -allowProvisioningUpdates
 
       - name: Exportar IPA
         run: |
