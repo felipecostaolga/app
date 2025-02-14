@@ -38,4 +38,4 @@ jobs:
             -scheme DVRO \
             -configuration Release \
             -archivePath $PWD/build/DVRO.xcarchive \
-            -allowProvisioningUpdates
+            -allowProvisioningUpdates 
