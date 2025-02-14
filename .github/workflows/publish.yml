@@ -1,42 +1,36 @@
-name: iOS Build and Deploy (Sem Fastlane)
+name: iOS Build & Archive
 
 on:
   push:
-    branches-ignore: ["master"]
-  workflow_dispatch:
+    branches:
+      - main
+  pull_request:
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: macos-latest
-
     steps:
-      - name: Checkout do código
-        uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-      - name: Install Node dependencies
-        run: npm install --force
-
-      - name: Replace URL in boost.podspec
-        run: |
-          echo "Substituindo URL no arquivo boost.podspec..."
-          sed -i '' 's|https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2|https://archives.boost.io/release/1.76.0/source/boost_1_76_0.tar.bz2|g' node_modules/react-native/third-party-podspecs/boost.podspec
-
-      - name: Cache CocoaPods
-        uses: actions/cache@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          path: ios/Pods
-          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-pods-
+          ruby-version: '2.7'  # Ajuste a versão conforme necessário
 
-      - name: Install pod dependencies
-        run: |
-          cd ios
-          sudo rm -rf Podfile.lock
-          pod install --no-repo-update
+      - name: Install Fastlane
+        run: gem install fastlane
 
+      - name: Sync Certificates and Provisioning Profiles with Match
+        env:
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          # Se necessário, defina também variáveis como TEAM_ID, APP_IDENTIFIER, etc.
+        run: fastlane match development
+        # Use "fastlane match appstore" para builds de distribuição
 
-
+      - name: Install CocoaPods Dependencies
+        working-directory: ios
+        run: pod install --repo-update
 
       - name: Build and Archive
         run: |
@@ -46,21 +40,3 @@ jobs:
             -configuration Release \
             -archivePath $PWD/build/DVRO.xcarchive \
             -allowProvisioningUpdates
-
-      - name: Exportar IPA
-        run: |
-          xcodebuild -exportArchive \
-            -archivePath $PWD/build/DVRO.xcarchive \
-            -exportOptionsPlist ExportOptions.plist \
-            git  -exportPath $PWD/build/IPA
-
-      - name: Upload para App Store Connect
-        run: |
-          xcrun altool --upload-app \
-            -f $PWD/build/IPA/SeuApp.ipa \
-            -t ios \
-            -u $APPLE_ID \
-            -p $APPLE_SPECIFIC_PASSWORD
-        env:
-          APPLE_ID: ${{ secrets.APPLE_ID }}
-          APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_SPECIFIC_PASSWORD }}
