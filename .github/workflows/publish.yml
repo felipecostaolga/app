@@ -24,7 +24,7 @@ jobs:
       - name: Sync Certificates and Provisioning Profiles with Match
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          MATCH_GIT_URL: "https://seu-repositorio-privado.git"
+          MATCH_GIT_URL: ${{ secrets.GH_TOKEN_REPO }}
         run: bundle exec fastlane match development
 
       - name: Install CocoaPods Dependencies
