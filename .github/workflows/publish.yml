@@ -17,14 +17,14 @@ jobs:
         run: |
           xcodebuild clean archive \
             -workspace ios/DVRO.xcworkspace \
-            -scheme SeuScheme \
+            -scheme DVRO \
             -configuration Release \
-            -archivePath $PWD/build/SeuApp.xcarchive
+            -archivePath $PWD/build/DVRO.xcarchive
 
       - name: Exportar IPA
         run: |
           xcodebuild -exportArchive \
-            -archivePath $PWD/build/SeuApp.xcarchive \
+            -archivePath $PWD/build/DVRO.xcarchive \
             -exportOptionsPlist ExportOptions.plist \
             git  -exportPath $PWD/build/IPA
 
