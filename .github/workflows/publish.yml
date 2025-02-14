@@ -15,9 +15,16 @@ jobs:
 
       - name: Install Node dependencies
         run: npm install --force
-      - name: Update SocketRocket pod
+        
+      - name: Replace URL in boost.podspec
+        run: |
+          echo "Substituindo URL no arquivo boost.podspec..."
+          sed -i '' 's|https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2|https://archives.boost.io/release/1.76.0/source/boost_1_76_0.tar.bz2|g' node_modules/react-native/third-party-podspecs/boost.podspec
+
+      - name: Install CocoaPods Dependencies
         working-directory: ios
-        run: pod update SocketRocket
+        run: pod install --repo-update
+
 
 
 
