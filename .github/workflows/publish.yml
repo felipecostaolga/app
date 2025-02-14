@@ -2,8 +2,8 @@ name: iOS Build & Archive
 
 on:
   push:
-    branches-ignore: ["master"]
-  workflow_dispatch:
+    branches:
+      - main
   pull_request:
 
 jobs:
@@ -16,8 +16,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'
-
+          ruby-version: '2.7'
 
       - name: Install Fastlane
         run: gem install fastlane
@@ -25,9 +24,8 @@ jobs:
       - name: Sync Certificates and Provisioning Profiles with Match
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          # Se necessário, defina também variáveis como TEAM_ID, APP_IDENTIFIER, etc.
-        run: fastlane match development
-        # Use "fastlane match appstore" para builds de distribuição
+          MATCH_GIT_URL: ${{ secrets.GH_TOKEN_REPO }} 
+        run: bundle exec fastlane match development
 
       - name: Install CocoaPods Dependencies
         working-directory: ios
