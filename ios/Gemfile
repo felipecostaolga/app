@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+gem 'rexml', '~> 3.2.5'
 
 source "https://rubygems.org"
 
