@@ -1,6 +1,5 @@
 name: iOS Build & Archive
 
-
 on:
   push:
     branches-ignore: ["master"]
@@ -25,11 +24,17 @@ jobs:
       - name: Install rexml gem
         run: gem install rexml -v 3.2.5
 
+      # Caso esteja usando um Gemfile, adicione:
+      #- name: Install Bundler Dependencies
+      #  run: bundle install
+
       - name: Sync Certificates and Provisioning Profiles with Match
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          MATCH_GIT_URL: ${{ secrets.GH_TOKEN_REPO }} 
+          MATCH_GIT_URL: ${{ secrets.GH_TOKEN_REPO }}
         run: bundle exec fastlane match development
+        # Se não estiver usando um Gemfile, use:
+        # run: fastlane match development
 
       - name: Install CocoaPods Dependencies
         working-directory: ios
@@ -42,4 +47,5 @@ jobs:
             -scheme DVRO \
             -configuration Release \
             -archivePath $PWD/build/DVRO.xcarchive \
-            -allowProvisioningUpdates 
+            -allowProvisioningUpdates
+
