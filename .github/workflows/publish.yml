@@ -7,34 +7,25 @@ on:
   pull_request:
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: macos-latest
-
     steps:
-      - name: Checkout do código
-        uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-      - name: Instalar dependências Ruby
-        run: bundle install --jobs 4 --retry 3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1.0'  # Use uma versão compatível
 
-      - name: Executar Fastlane Match Development
-        run: bundle exec fastlane match development
-        env:
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
-
-
-      # Caso esteja usando um Gemfile, adicione:
-      #- name: Install Bundler Dependencies
-      #  run: bundle install
+      - name: Install Gems
+        run: bundle install
 
       - name: Sync Certificates and Provisioning Profiles with Match
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          MATCH_GIT_URL: ${{ secrets.GH_TOKEN_REPO }}
+          MATCH_GIT_URL: "https://seu-repositorio-privado.git"
         run: bundle exec fastlane match development
-        # Se não estiver usando um Gemfile, use:
-        # run: fastlane match development
 
       - name: Install CocoaPods Dependencies
         working-directory: ios
@@ -48,4 +39,3 @@ jobs:
             -configuration Release \
             -archivePath $PWD/build/DVRO.xcarchive \
             -allowProvisioningUpdates
-
