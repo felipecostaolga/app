@@ -20,6 +20,11 @@ jobs:
 
       - name: Install Gems
         run: bundle install
+      
+      - name: Fastlane Environment Debug
+        if: ${{ github.event_name == 'workflow_dispatch' }}  # ou outra condição apropriada
+        run: bundle exec fastlane env
+
 
       - name: Sync Certificates and Provisioning Profiles with Match
         env:
