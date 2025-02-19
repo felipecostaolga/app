@@ -10,6 +10,8 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
+    
+    
       - name: Checkout Code
         uses: actions/checkout@v3
 
@@ -19,7 +21,12 @@ jobs:
           ruby-version: '3.1.0'  # Use uma versão compatível
           
       - name: Print APPLE_SPECIFIC_PASSWORD
-        run: echo "${{ secrets.APPLE_SPECIFIC_PASSWORD }}"
+        env:
+            MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+            MATCH_GIT_URL: "https://${{ secrets.GH_TOKEN_REPO }}@github.com/felipecosta91/test-robson.git"
+            FASTLANE_USER: ${{ secrets.APPLE_ID }}  
+            FASTLANE_PASSWORD: ${{ secrets.APPLE_SPECIFIC_PASSWORD }} 
+        run: echo "$FASTLANE_PASSWORD"
 
 
       - name: Install Gems
