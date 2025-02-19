@@ -1,21 +1,17 @@
 platform :ios do
-  desc "Build e deploy para o App Store Connect (método tradicional)"
+  desc "Build e deploy para o App Store Connect (modo readonly)"
   lane :deploy do
-    # Sincroniza certificados e profiles usando match sem API Key.
-    # O Fastlane usará as variáveis FASTLANE_USER e FASTLANE_PASSWORD para autenticação.
     match(
       type: "appstore",
       app_identifier: "br.com.delivery.thefamous",
-      readonly: true  # Use readonly se os certificados já estiverem configurados
+      readonly: true
     )
 
-    # Build do app com o scheme "DVRO"
     build_app(
       scheme: "DVRO",
       export_method: "app-store"
     )
 
-    # Upload para o App Store Connect
     upload_to_app_store(
       skip_metadata: true,
       skip_screenshots: true
