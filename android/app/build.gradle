@@ -78,14 +78,14 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "br.com.delivery.sucao"
+    namespace "br.com.delivery.Estação Campineira"
     defaultConfig {
         multiDexEnabled true
-        applicationId "br.com.delivery.sucao"
+        applicationId "br.com.delivery.Estação Campineira"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 107
-        versionName "107.1"
+        versionCode 101
+        versionName "101.1"
     }
       buildFeatures {
         buildConfig = true
@@ -94,9 +94,9 @@ android {
     signingConfigs {
     
          release {
-            storeFile file('sucao-olga.keystore')
+            storeFile file('estacaocampineira-olga.keystore')
             storePassword '12345678'
-            keyAlias 'sucao-olga'
+            keyAlias 'estacaocampineira-olga'
             keyPassword '12345678'
         }
     }
