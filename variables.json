@@ -1,8 +1,8 @@
 {
-  "url": "https://sucao.olga.tech",
-  "primaryColor": "#ffffff",
-  "secondaryColor": "#ffffff",
-  "OneSignalKey": "f3f8fd48-dbba-4c45-bbc3-f2f0464c1e95",
+  "url": "https://estacaocampineira.com.br/",
+  "primaryColor": "#f7f7f7",
+  "secondaryColor": "#f7f7f7",
+  "OneSignalKey": "efd8aa40-0df0-45b3-adfd-cf63b2ac50aa",
   "olgaApi": "https://api.olga.tech/",
   "olgaApiFood": "https://api.food.olga.tech"
 }
