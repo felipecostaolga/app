@@ -1,4 +1,4 @@
-package br.com.delivery.sucao;
+package estacaocampineira;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
