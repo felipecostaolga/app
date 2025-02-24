@@ -1,46 +1,35 @@
+default_platform(:android)
+
 platform :android do
-  desc "Build AAB for release and upload images and texts to Google Play"
-  lane :build do
+  desc "Deploy (build .aab e envia para a Play Store)"
+  lane :deploy do
     gradle(
-      task: "clean bundleRelease",
-      project_dir: "../android" # Caminho relativo para a pasta android
+      task: "bundle",
+      build_type: "Release"
     )
 
-    # Upload do AAB e dos metadados para o Google Play
-    upload_to_play_store(
-      track: "production", # Faz upload para o Google Play na track de produção
-      json_key: "./fastlane/robsonjr-973fd4f86cda.json", # Caminho para o arquivo JSON da conta de serviço
-      skip_upload_apk: true,   # Pula o upload do APK (estamos enviando um AAB)
-      skip_upload_aab: false,  # Permite o upload do AAB
-      aab: "../android/app/build/outputs/bundle/release/app-release.aab" # Caminho para o AAB gerado
+    supply(
+      aab: "app/build/outputs/bundle/release/app-release.aab",
+      track: "production"
+    )
+  end
+
+  desc "Cria o app do zero na Play Store"
+  lane :create_app do
+    gradle(
+      task: "bundle",
+      build_type: "Release"
+    )
+
+    supply(
+      aab: "app/build/outputs/bundle/release/app-release.aab",
+      track: "production",
+      json_key: "./google-play-key.json",
+      package_name: "br.com.delivery.thefamous",
+      skip_upload_images: true, 
+      skip_upload_screenshots: true, 
+      skip_upload_changelogs: true, 
+      skip_upload_metadata: true, 
     )
   end
 end
-platform :ios do
-  desc "Construir o aplicativo"
-  lane :build do
-    build_app(scheme: "DVRO")
-  end
-
-  desc "Lançar para a App Store"
-lane :release do
-  build_app(
-    scheme: "DVRO",
-    workspace: "/Users/felipecosta/Downloads/app-generator/src/app/ios/DVRO.xcworkspace" 
-  )
-  upload_to_app_store
-end
-end
-
-desc "Clean build artifacts"
-lane :clean_build_artifacts do
-  # Limpa arquivos temporários do Xcode
-  sh "rm -rf ~/Library/Developer/Xcode/DerivedData/*"
-  
-  # Limpa caches de builds antigos, caso esteja usando Cocoapods
-  sh "pod cache clean --all"
-  
-  # Limpa os diretórios temporários do fastlane
-  sh "rm -rf ./fastlane/build/*"
-end
-
