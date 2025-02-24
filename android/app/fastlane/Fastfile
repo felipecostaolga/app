@@ -1,41 +1,11 @@
-default_platform(:android)
+lane :deploy do
+  build_app(scheme: "DVRO")
 
-platform :android do
-  desc "Runs all the tests"
-  lane :test do
-    gradle(task: "test")
-  end
-
-  desc "Submit a new Beta Build to Crashlytics Beta"
-  lane :beta do
-    gradle(task: " bundleRelease")  
-    crashlytics
-  end
-
-  desc "Deploy a new version to the Google Play"
-  lane :deploy do
-    gradle(task: " bundleRelease")  
-    upload_to_play_store(
-      track: "production"              
-    )
-  end
-end
-default_platform(:ios)
-
-platform :ios do
-  desc "Construir o aplicativo"
-  lane :build do
-    build_app(scheme: "DVRO")
-  end
-
-  desc "Executar testes"
-  lane :test do
-    run_tests(scheme: "DVRO")
-  end
-
-  desc "Lançar para a App Store"
-  lane :release do
-    build_app(scheme: "DVRO")
-    upload_to_app_store
-  end
+  deliver(
+    force: true,                    # Força o envio sem prompt interativo
+    itc_team_id: 'Z72V34LC55',  # ID do time, recebido da variável de ambiente
+    skip_metadata: true,            # Pula atualização de metadados, se desejado
+    skip_screenshots: true,         # Pula envio de screenshots, se não for necessário
+    submit_for_review: false        # Altere para true se quiser enviar para revisão automaticamente
+  )
 end
